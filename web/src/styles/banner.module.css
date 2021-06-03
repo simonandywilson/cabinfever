@@ -1,0 +1,21 @@
+.banner {
+    position: fixed;
+    height: var(--banner-height);
+    width: 100%;
+    bottom: 0;
+    color: #ffffff;
+    background: #000000;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+    height: max-content;
+    width: 100%;
+}
+
+h4 {
+    margin: 0;
+}
