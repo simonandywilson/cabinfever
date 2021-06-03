@@ -13,10 +13,10 @@
     align-items: center;
     width: 100vw;
     height: var(--wrapper-height);
-    max-height: 100vh;
+    max-height: var(--wrapper-height-max);
     max-width: var(--wrapper-width);
     margin: auto;
-    top: 0;
+    top: -50px;
     bottom: 0;
     left: 0;
     right: 0;

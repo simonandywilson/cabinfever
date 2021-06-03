@@ -4,6 +4,7 @@
     width: 100%;
     border-bottom: var(--cell-border);
     border-right: var(--cell-border);
+    overflow: hidden;
 }
 
 .text {
@@ -13,22 +14,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    pointer-events: none;
 }
 
 .image {
     position: absolute;
-    max-width: 100%;
+    max-width: calc(200% - 25px);
     max-height: 100%;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    /* clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%); */
 }
 
 .colour {
     position: relative;
     height: 100%;
     width: 100%;
-    background: seagreen;
+    pointer-events: none;
 }

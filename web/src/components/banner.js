@@ -1,18 +1,18 @@
 import React from "react";
 import * as style from "../styles/banner.module.css";
+import { useStaticQuery, graphql } from "gatsby";
 import Ticker from "react-ticker";
 
 const Banner = () => {
+    const { sanityAbout } = useStaticQuery(getData);
     return (
         <main className={style.banner}>
             <div className={style.wrapper}>
                 <Ticker>
                     {() => (
                         <>
-                            <h4>
-                                CABIN FEVER PROTOTYPE LIVESTREAM AT FOLDA
-                                FESTIVAL 12/06/21 12:00–12:00 PROTOTYPE LIVESTREAM AT
-                                FOLDA 12/06/21 12:00–12:00
+                            <h4 className={style.text}>
+                                {sanityAbout.banner}
                             </h4>
                         </>
                     )}
@@ -23,3 +23,11 @@ const Banner = () => {
 };
 
 export default Banner;
+
+const getData = graphql`
+    {
+        sanityAbout {
+            banner
+        }
+    }
+`;

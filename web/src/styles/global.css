@@ -7,20 +7,34 @@ Media Queries
     :root {
         --wrapper-height: 112.5vw; /* 9/8 = 1.125 */
         --wrapper-width: 88.88vh; /* 8/9 = 0.8888 */
+        --wrapper-height-max: 100vh;
         --grid-rows: repeat(2, 1fr);
         --grid-columns: repeat(1, 1fr);
         --cell-visibility: none;
     }
 }
-@media only screen and (orientation: landscape) {
+@media only screen and (orientation: landscape) and (max-height: 56.25vw) {
     :root {
-        --wrapper-height: 56.25vw; /* 9/16 = .5625 */
-        --wrapper-width: 177.78vh; /* 16/9 = 1.778 */
+        --wrapper-height: calc(56.25vw - 50px); /* 9/16 = .5625 */
+        --wrapper-width: calc(177.78vh - 50px); /* 16/9 = 1.778 */
+       --wrapper-height-max: calc(100vh - 50px);
         --grid-rows: repeat(4, 1fr);
         --grid-columns: repeat(4, 1fr);
         --cell-visibility: block;
     }
 }
+
+@media only screen and (orientation: landscape) and (min-height: 56.25vw) {
+    :root {
+        --wrapper-height: 56.25vw; /* 9/16 = .5625 */
+        --wrapper-width: 177.78vh; /* 16/9 = 1.778 */
+        --wrapper-height-max: 100vh;
+        --grid-rows: repeat(4, 1fr);
+        --grid-columns: repeat(4, 1fr);
+        --cell-visibility: block;
+    }
+}
+
 
 /*----------------------------------------
 Variables
@@ -82,22 +96,15 @@ Typography
         url("../fonts/diatype/diatype_regular.woff") format("woff");
 }
 
-/* p {
-    white-space: pre-wrap;
-}
 
 a {
     width: max-content;
     color: #000000;
     text-decoration: none;
-    transition: 0.5s;
 }
 
 a:visited,
-a:active {
+a:active,
+a:hover {
     color: #000000;
 }
-
-a:hover {
-    color: #ffffff;
-} */
