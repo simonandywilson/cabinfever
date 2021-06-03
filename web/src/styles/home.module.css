@@ -9,10 +9,12 @@
 
 .wrapper {
     position: absolute;
+    display: flex;
+    align-items: center;
     width: 100vw;
-    height: 56.25vw;
+    height: var(--wrapper-height);
     max-height: 100vh;
-    max-width: 177.78vh;
+    max-width: var(--wrapper-width);
     margin: auto;
     top: 0;
     bottom: 0;
@@ -22,14 +24,20 @@
 
 .grid {
     position: absolute;
-    top: 0;
-    bottom: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
     left: 0;
     right: 0;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: var(--grid-columns);
+    grid-template-rows: var(--grid-rows);
     background: #ffffff;
     border-top: var(--cell-border);
     border-left: var(--cell-border);
+    overflow: hidden;
+}
+
+.grid > div:nth-child(n+3) {
+    display: var(--cell-visibility);
 }

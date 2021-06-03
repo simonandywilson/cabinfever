@@ -1,4 +1,28 @@
 /*----------------------------------------
+Media Queries
+----------------------------------------*/
+
+/* Portrait */
+@media only screen and (orientation: portrait) {
+    :root {
+        --wrapper-height: 112.5vw; /* 9/8 = 1.125 */
+        --wrapper-width: 88.88vh; /* 8/9 = 0.8888 */
+        --grid-rows: repeat(2, 1fr);
+        --grid-columns: repeat(1, 1fr);
+        --cell-visibility: none;
+    }
+}
+@media only screen and (orientation: landscape) {
+    :root {
+        --wrapper-height: 56.25vw; /* 9/16 = .5625 */
+        --wrapper-width: 177.78vh; /* 16/9 = 1.778 */
+        --grid-rows: repeat(4, 1fr);
+        --grid-columns: repeat(4, 1fr);
+        --cell-visibility: block;
+    }
+}
+
+/*----------------------------------------
 Variables
 ----------------------------------------*/
 
@@ -12,7 +36,7 @@ Variables
 
     --banner-height: 50px;
 
-    --menu-colour: #02FF00;
+    --menu-colour: #02ff00;
     --menu-margin: 25px;
     --menu-border-radius: 12px;
 }
@@ -26,6 +50,7 @@ Main
     box-sizing: inherit;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    text-rendering: geometricPrecision;
 }
 
 @-ms-viewport {
@@ -56,7 +81,6 @@ Typography
     src: url("../fonts/diatype/diatype_regular.woff2") format("woff2"),
         url("../fonts/diatype/diatype_regular.woff") format("woff");
 }
-
 
 /* p {
     white-space: pre-wrap;

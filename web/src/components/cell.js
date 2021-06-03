@@ -5,6 +5,8 @@ import Bin from "../images/bin.svg";
 import Fev from "../images/fev.svg";
 import Ver from "../images/ver.svg";
 
+import Cabin from "../images/cabin.svg"
+
 
 const Cell = (props) => {
 const [visible, setVisible] = useState(false)

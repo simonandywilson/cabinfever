@@ -10,7 +10,7 @@ const Home = () => {
         <Menu />
           <div className={style.wrapper}>
               <div className={style.grid}>
-                  {[...Array(16)].map((i) =>
+                  {[...Array(16)].map((e, i) =>
                   <Cell key={i}/>
       
                   )}

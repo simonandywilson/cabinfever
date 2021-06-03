@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from "react";
 import * as style from "../styles/menu.module.css";
 import { motion } from "framer-motion";
 import Arrow from "../images/arrow.svg";
@@ -16,7 +16,11 @@ const Menu = () => {
 
     return (
         <menu className={style.menu}>
-            <div className={style.button} onClick={() => setVisible((prevVisible) => !prevVisible)}>
+            <div
+                className={style.button}
+                onClick={() => setVisible((prevVisible) => !prevVisible)}
+                role="presentation"
+            >
                 <img className={style.arrow} src={Arrow} alt="Cabin Fever" draggable="false" />
             </div>
             <motion.div
@@ -36,6 +40,6 @@ const Menu = () => {
             </motion.div>
         </menu>
     );
-}
+};
 
-export default Menu
+export default Menu;
