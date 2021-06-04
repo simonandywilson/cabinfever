@@ -5,6 +5,7 @@
     border-bottom: var(--cell-border);
     border-right: var(--cell-border);
     overflow: hidden;
+    background: #ffffff;
 }
 
 .text {

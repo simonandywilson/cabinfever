@@ -17,7 +17,7 @@ const Home = ({ data }) => {
                 <div className={style.grid}>
                     {order.map((order, i) => {
                         return (
-                            <Cell key={i} index={i} order={order} image={content[0].thumbnail[i]} />
+                            <Cell key={i} index={i} order={order} image={content[1].thumbnail[i]} />
                         );
                     })}
                     <Tick direction={"toLeft"} offset={0}/>
