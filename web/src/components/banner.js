@@ -6,11 +6,24 @@ import Ticker from "react-ticker";
 const Banner = () => {
     const { sanityAbout } = useStaticQuery(getData);
     return (
-        <main className={style.banner}>
-            <div className={style.wrapper}>
-                <Ticker>{() => <h4 className={style.text}>{sanityAbout.banner}</h4>}</Ticker>
-            </div>
-        </main>
+        
+            <main className={style.banner}>
+                <div className={style.wrapper}>
+                    <Ticker>
+                        {() => (
+                            <a
+                                href={sanityAbout.link}
+                                target="_blank"
+                                rel="noreferrer"
+                                className={style.text}
+                            >
+                                {sanityAbout.banner}
+                            </a>
+                        )}
+                    </Ticker>
+                </div>
+            </main>
+        
     );
 };
 
@@ -20,6 +33,7 @@ const getData = graphql`
     {
         sanityAbout {
             banner
+            link
         }
     }
 `;

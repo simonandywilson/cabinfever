@@ -81,6 +81,7 @@ const getData = graphql`
     {
         sanityAbout {
             contact {
+                _key
                 title
                 link
                 type

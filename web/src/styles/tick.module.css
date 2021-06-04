@@ -1,0 +1,12 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-bottom: var(--cell-border);
+    border-right: var(--cell-border);
+    overflow: hidden;
+}
+
+.text {
+    white-space: nowrap;
+}

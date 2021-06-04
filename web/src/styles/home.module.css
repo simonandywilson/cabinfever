@@ -41,3 +41,7 @@
 .grid > div:nth-child(-n+16) {
     display: var(--cell-visibility);
 }
+
+.grid > div:nth-child(n+17) {
+    display: var(--cell-visibility-mobile);
+}

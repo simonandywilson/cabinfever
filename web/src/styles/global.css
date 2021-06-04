@@ -11,9 +11,10 @@ Media Queries
         --grid-rows: repeat(2, 1fr);
         --grid-columns: repeat(1, 1fr);
         --cell-visibility: none;
+        --cell-visibility-mobile: block;
     }
 }
-@media only screen and (orientation: landscape) and (max-height: calc(56.25vw)) {
+@media only screen and (orientation: landscape) {
     :root {
         --wrapper-height: calc(56.25vw - 50px); /* 9/16 = .5625 */
         --wrapper-width: calc(177.78vh - 50px); /* 16/9 = 1.778 */
@@ -21,20 +22,9 @@ Media Queries
         --grid-rows: repeat(4, 1fr);
         --grid-columns: repeat(4, 1fr);
         --cell-visibility: block;
+        --cell-visibility-mobile: none;
     }
 }
-
-@media only screen and (orientation: landscape) and (min-height: calc(56.25vw)) {
-    :root {
-        --wrapper-height: 56.25vw; /* 9/16 = .5625 */
-        --wrapper-width: 177.78vh; /* 16/9 = 1.778 */
-        --wrapper-height-max: 100vh;
-        --grid-rows: repeat(4, 1fr);
-        --grid-columns: repeat(4, 1fr);
-        --cell-visibility: block;
-    }
-}
-
 
 /*----------------------------------------
 Variables
@@ -93,17 +83,4 @@ Typography
     font-family: "diatype_regular";
     src: url("../fonts/diatype/diatype_regular.woff2") format("woff2"),
         url("../fonts/diatype/diatype_regular.woff") format("woff");
-}
-
-
-a {
-    width: max-content;
-    color: #000000;
-    text-decoration: none;
-}
-
-a:visited,
-a:active,
-a:hover {
-    color: #000000;
 }

@@ -17,6 +17,14 @@
 }
 
 .text {
+    color: #ffffff;
     margin: 0;
     letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.text:visited,
+.text:active,
+.text:hover {
+    color: #ffffff;
 }

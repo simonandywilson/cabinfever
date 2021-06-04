@@ -3,19 +3,25 @@ import * as style from "../styles/home.module.css";
 import { graphql } from "gatsby";
 import Menu from "../components/menu";
 import Cell from "../components/cell";
+import Tick from "../components/tick";
 import Banner from "../components/banner";
 
 const Home = ({ data }) => {
-    const content = data.sanityContent;
+    const content = data.allSanityContent.nodes;
+    const order = data.sanityAbout.order
 
     return (
         <main className={style.container}>
             <Menu />
             <div className={style.wrapper}>
                 <div className={style.grid}>
-                    {content.order.map((order, i) => {
-                        return <Cell key={i} index={i} order={order} image={content.day[i]}/>;
+                    {order.map((order, i) => {
+                        return (
+                            <Cell key={i} index={i} order={order} image={content[0].thumbnail[0]} />
+                        );
                     })}
+                    <Tick direction={"toLeft"} offset={0}/>
+                    <Tick direction={"toRight"} offset={"100%"}/>
                 </div>
             </div>
             <Banner />
@@ -27,13 +33,17 @@ export default Home;
 
 export const query = graphql`
     query {
-        sanityContent {
-            order
-            day {
-                asset {
-                    gatsbyImageData(layout: FULL_WIDTH)
+        allSanityContent {
+            nodes {
+                thumbnail {
+                    asset {
+                        gatsbyImageData(layout: FULL_WIDTH)
+                    }
                 }
             }
+        }
+        sanityAbout {
+            order
         }
     }
 `;
