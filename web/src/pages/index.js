@@ -17,7 +17,7 @@ const Home = ({ data }) => {
                 <div className={style.grid}>
                     {order.map((order, i) => {
                         return (
-                            <Cell key={i} index={i} order={order} image={content[1].thumbnail[i]} />
+                            <Cell key={i} index={i} order={order} image={content[0].thumbnail[i]} />
                         );
                     })}
                     <Tick direction={"toLeft"} offset={0}/>
@@ -33,7 +33,7 @@ export default Home;
 
 export const query = graphql`
     query {
-        allSanityContent {
+        allSanityContent(filter: { start: { eq: "06:00" } }) {
             nodes {
                 thumbnail {
                     asset {
