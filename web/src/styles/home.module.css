@@ -32,7 +32,6 @@
     display: grid;
     grid-template-columns: var(--grid-columns);
     grid-template-rows: var(--grid-rows);
-    background: #ffffff;
     border-top: var(--cell-border);
     border-left: var(--cell-border);
     overflow: hidden;
