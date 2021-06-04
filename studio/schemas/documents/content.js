@@ -34,6 +34,9 @@ export default {
             title: "Thumbnails",
             name: "thumbnail",
             type: "thumbnail",
+            options: {
+                layout: "grid",
+            },
             validation: (Rule) => Rule.min(16),
         },
     ],

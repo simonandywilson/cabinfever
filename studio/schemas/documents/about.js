@@ -11,6 +11,12 @@ export default {
             type: "text",
         },
         {
+            // Banner Link
+            title: "Banner Link",
+            name: "link",
+            type: "url",
+        },
+        {
             // Contact
             title: "Contact",
             name: "contact",
