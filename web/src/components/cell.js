@@ -23,8 +23,8 @@ const image = getImage(props.image.asset);
                 
                     <img
                         style={{
-                            paddingLeft: even && "25px",
-                            paddingRight: !even && "25px",
+                            paddingLeft: even && "40px",
+                            paddingRight: !even && "40px",
                             left: even && "0",
                             right: !even && "0",
                         }}

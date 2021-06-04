@@ -19,7 +19,7 @@
 
 .image {
     position: absolute;
-    max-width: calc(200% - 25px);
+    max-width: calc(200% - 40px);
     max-height: 100%;
     -webkit-user-select: none;
     -moz-user-select: none;
