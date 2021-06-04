@@ -8,15 +8,7 @@ const Banner = () => {
     return (
         <main className={style.banner}>
             <div className={style.wrapper}>
-                <Ticker>
-                    {() => (
-                        <>
-                            <h4 className={style.text}>
-                                {sanityAbout.banner}
-                            </h4>
-                        </>
-                    )}
-                </Ticker>
+                <Ticker>{() => <h4 className={style.text}>{sanityAbout.banner}</h4>}</Ticker>
             </div>
         </main>
     );

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import * as style from "../styles/cell.module.css";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Ticker from "react-ticker";
 import Cabin from "../images/cabin.svg"
 import Fever from "../images/fever.svg"
 
@@ -20,18 +21,37 @@ const image = getImage(props.image.asset);
                 <GatsbyImage image={image} alt={"Webcam image"} />
             </div>
             <div style={{ display: visible ? "flex" : "none" }} className={style.text}>
-                <img
-                    style={{
-                        paddingLeft: even && "25px",
-                        paddingRight: !even && "25px",
-                        left: even && "0",
-                        right: !even && "0",
-                    }}
-                    className={style.image}
-                    src={cabin ? Cabin : Fever}
-                    alt="Cabin Fever"
-                    draggable="false"
-                />
+                {props.index < 17 ? (
+                    <img
+                        style={{
+                            paddingLeft: even && "25px",
+                            paddingRight: !even && "25px",
+                            left: even && "0",
+                            right: !even && "0",
+                        }}
+                        className={style.image}
+                        src={cabin ? Cabin : Fever}
+                        alt="Cabin Fever"
+                        draggable="false"
+                    />
+                ) : (
+                    <Ticker>
+                        {() => (
+                            <img
+                                style={{
+                                    paddingLeft: even && "25px",
+                                    paddingRight: !even && "25px",
+                                    left: even && "0",
+                                    right: !even && "0",
+                                }}
+                                className={style.image}
+                                src={cabin ? Cabin : Fever}
+                                alt="Cabin Fever"
+                                draggable="false"
+                            />
+                        )}
+                    </Ticker>
+                )}
             </div>
         </div>
     );

@@ -38,6 +38,6 @@
     overflow: hidden;
 }
 
-.grid > div:nth-child(n+3) {
+.grid > div:nth-child(-n+16) {
     display: var(--cell-visibility);
 }

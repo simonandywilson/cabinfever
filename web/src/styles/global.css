@@ -13,7 +13,7 @@ Media Queries
         --cell-visibility: none;
     }
 }
-@media only screen and (orientation: landscape) and (max-height: 56.25vw) {
+@media only screen and (orientation: landscape) and (max-height: calc(56.25vw)) {
     :root {
         --wrapper-height: calc(56.25vw - 50px); /* 9/16 = .5625 */
         --wrapper-width: calc(177.78vh - 50px); /* 16/9 = 1.778 */
@@ -24,7 +24,7 @@ Media Queries
     }
 }
 
-@media only screen and (orientation: landscape) and (min-height: 56.25vw) {
+@media only screen and (orientation: landscape) and (min-height: calc(56.25vw)) {
     :root {
         --wrapper-height: 56.25vw; /* 9/16 = .5625 */
         --wrapper-width: 177.78vh; /* 16/9 = 1.778 */
@@ -64,7 +64,6 @@ Main
     box-sizing: inherit;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    text-rendering: geometricPrecision;
 }
 
 @-ms-viewport {

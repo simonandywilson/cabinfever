@@ -17,5 +17,11 @@ export default {
             type: "contact",
             validation: (Rule) => Rule.max(4),
         },
+        {
+            title: "Order",
+            name: "order",
+            type: "layout",
+            // hidden: true,
+        },
     ],
 };

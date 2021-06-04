@@ -31,7 +31,7 @@ export const query = graphql`
             order
             day {
                 asset {
-                    gatsbyImageData
+                    gatsbyImageData(layout: FULL_WIDTH)
                 }
             }
         }
