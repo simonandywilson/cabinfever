@@ -18,7 +18,7 @@ Media Queries
     :root {
         --wrapper-height: calc(56.25vw - 50px); /* 9/16 = .5625 */
         --wrapper-width: calc(177.78vh - 50px); /* 16/9 = 1.778 */
-       --wrapper-height-max: calc(100vh - 50px);
+        --wrapper-height-max: calc(100vh - 50px);
         --grid-rows: repeat(4, 1fr);
         --grid-columns: repeat(4, 1fr);
         --cell-visibility: block;
