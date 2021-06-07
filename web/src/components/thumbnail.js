@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import * as style from "../styles/thumbnail.module.css";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import moment from "moment";
 
 const Thumbnail = (props) => {
     const {
@@ -18,14 +19,12 @@ const Thumbnail = (props) => {
             style={{ opacity: visible ? "1" : "0" }}
         >
             {content.map((thumbs) => {
-                const start = convertTime(thumbs.start);
-                // const end = convertTime(thumbs.end);
-                const currentThumbnail = start === 360;
+                const currentThumbnail = isTimeBetween(thumbs.start, thumbs.end, props.time);
                 const image = getImage(thumbs.thumbnail[props.index].asset);
 
                 return (
                     currentThumbnail && (
-                        <div className={style.colour} key={thumbs._key}>
+                        <div className={style.colour} key={thumbs._key} style={{background: image.backgroundColor}}>
                             <GatsbyImage image={image} alt={""} draggable="false" />
                         </div>
                     )
@@ -35,12 +34,17 @@ const Thumbnail = (props) => {
     );
 };
 
-const convertTime = (time) => {
-    const split = time.split(":");
-    const hours = parseInt(split[0], 10);
-    const minutes = parseInt(split[1], 10);
-    const total = hours * 60 + minutes;
-    return total;
+const isTimeBetween = function (startTime, endTime, serverTime) {
+    let start = moment(startTime, "H:mm");
+    let end = moment(endTime, "H:mm");
+    let server = moment(serverTime, "H:mm");
+    if (end < start) {
+        return (
+            (server >= start && server <= moment("23:59:59", "h:mm:ss")) ||
+            (server >= moment("0:00:00", "h:mm:ss") && server < end)
+        );
+    }
+    return server >= start && server < end;
 };
 
 export default Thumbnail;

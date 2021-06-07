@@ -25,7 +25,7 @@ const Menu = () => {
                 onClick={() => setVisible((prevVisible) => !prevVisible)}
                 role="presentation"
             >
-                <img className={style.arrow} src={Arrow} alt="Cabin Fever" draggable="false" />
+                <img className={style.arrow} src={Arrow} alt="Open Menu" draggable="false" />
             </div>
             <motion.div
                 className={style.popover}

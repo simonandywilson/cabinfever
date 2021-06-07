@@ -10,11 +10,18 @@ import Banner from "../components/banner";
 
 const Home = ({ data }) => {
     const order = data.sanityAbout.order;
-    const [time, setTime] = useState(new Date().getHours() * 60 + new Date().getMinutes());
+    const [time, setTime] = useState(new Date().toLocaleTimeString([], { hour: '2-digit', minute: "2-digit", hour12: false }));
 
     useEffect(() => {
         const interval = setInterval(
-            () => setTime(new Date().getHours() * 60 + new Date().getMinutes()),
+            () =>
+                setTime(
+                    new Date().toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: false,
+                    })
+                ),
             60000
         );
         return () => {

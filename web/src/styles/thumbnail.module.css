@@ -4,13 +4,14 @@
     width: 100%;
     border-bottom: var(--cell-border);
     border-right: var(--cell-border);
-    overflow: hidden;
     background: #ffffff;
+    overflow: hidden;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
+    
 }
 
 .colour {
@@ -19,5 +20,7 @@
     width: 100%;
     top: 0;
     left: 0;
+    bottom: 0;
+    right: 0;
     pointer-events: none;
 }
