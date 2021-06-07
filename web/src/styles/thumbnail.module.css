@@ -2,9 +2,6 @@
     position: relative;
     height: 100%;
     width: 100%;
-    border-bottom: var(--cell-border);
-    border-right: var(--cell-border);
-    background: #ffffff;
     overflow: hidden;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -16,8 +13,8 @@
 
 .colour {
     position: absolute;
-    height: 100%;
-    width: 100%;
+    height: 120%;
+    width: 120%;
     top: 0;
     left: 0;
     bottom: 0;
