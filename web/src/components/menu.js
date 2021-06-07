@@ -10,7 +10,7 @@ const Menu = () => {
     } = useStaticQuery(getData);
     const [visible, setVisible] = useState(false);
     const popover = {
-        open: { height: "250px", width: "250px" },
+        open: { height: "275px", width: "275px" },
         closed: { height: 0, width: 0 },
     };
     const text = {

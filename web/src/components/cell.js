@@ -1,29 +1,15 @@
-import React, {useState} from 'react'
+import React from "react";
 import * as style from "../styles/cell.module.css";
-import Thumbnail from "../components/thumbnail"
-import Cabin from "../images/cabin.svg"
-import Fever from "../images/fever.svg"
+import Cabin from "../images/cabin.svg";
+import Fever from "../images/fever.svg";
 
 const Cell = (props) => {
-const [visible, setVisible] = useState(false)
-const cabin = props.order === "CAB" || props.order === "BIN" ? true : false
-const even = props.index % 2 === 0 ? true : false
+    const cabin = props.order === "CABIN" ? true : false;
 
     return (
-        <div
-            className={style.container}
-            onMouseEnter={() => setVisible((prevVisible) => !prevVisible)}
-            role="presentation"
-        >
-            <Thumbnail index={props.index} visible={visible} time={props.time} />
-            <div style={{ display: visible ? "flex" : "none" }} className={style.text}>
+        <div className={style.container}>
+            <div className={style.text}>
                 <img
-                    style={{
-                        paddingLeft: even && "40px",
-                        paddingRight: !even && "40px",
-                        left: even && "0",
-                        right: !even && "0",
-                    }}
                     className={style.image}
                     src={cabin ? Cabin : Fever}
                     alt="Cabin Fever"
@@ -32,6 +18,6 @@ const even = props.index % 2 === 0 ? true : false
             </div>
         </div>
     );
-}
+};
 
-export default Cell
+export default Cell;

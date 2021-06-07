@@ -22,6 +22,30 @@
     right: 0;
 }
 
+.border {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-bottom: var(--cell-border);
+    border-right: var(--cell-border);
+    pointer-events: none;
+}
+
+.gridLarge {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: var(--grid-columns-large);
+    grid-template-rows: var(--grid-rows-large);
+    border-top: var(--cell-border);
+    border-left: var(--cell-border);
+    overflow: hidden;
+}
+
 .grid {
     position: absolute;
     height: 100%;
@@ -42,5 +66,13 @@
 }
 
 .grid > div:nth-child(n+17) {
+    display: var(--cell-visibility-mobile);
+}
+
+.gridLarge > div:nth-child(-n+8) {
+    display: var(--cell-visibility);
+}
+
+.gridLarge > div:nth-child(n+9) {
     display: var(--cell-visibility-mobile);
 }

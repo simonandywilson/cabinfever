@@ -2,10 +2,9 @@
     position: relative;
     height: 100%;
     width: 100%;
-    border-bottom: var(--cell-border);
-    border-right: var(--cell-border);
     overflow: hidden;
     background: #ffffff;
+    pointer-events: none;
 }
 
 .text {
@@ -20,8 +19,9 @@
 
 .image {
     position: absolute;
-    max-width: calc(200% - 40px);
+    max-width: 100%;
     max-height: 100%;
+    padding: var(--padding);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
