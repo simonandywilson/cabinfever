@@ -26,11 +26,5 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-.colour {
-    position: relative;
-    height: 100%;
-    width: 100%;
-    pointer-events: none;
+    -webkit-tap-highlight-color: transparent;
 }

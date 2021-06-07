@@ -3,26 +3,43 @@ Media Queries
 ----------------------------------------*/
 
 /* Portrait */
-@media only screen and (orientation: portrait) {
+@media only screen and (max-width: 599px) {
     :root {
         --wrapper-height: 112.5vw; /* 9/8 = 1.125 */
         --wrapper-width: 88.88vh; /* 8/9 = 0.8888 */
         --wrapper-height-max: 100vh;
+        --wrapper-offset: -50px;
         --grid-rows: repeat(2, 1fr);
         --grid-columns: repeat(1, 1fr);
         --cell-visibility: none;
-        --cell-visibility-mobile: block;
+        --cell-visibility-mobile: flex;
+        --menu-margin: 15px;
     }
 }
-@media only screen and (orientation: landscape) {
+@media only screen and (min-width: 600px) {
     :root {
-        --wrapper-height: calc(56.25vw - 50px); /* 9/16 = .5625 */
-        --wrapper-width: calc(177.78vh - 50px); /* 16/9 = 1.778 */
-        --wrapper-height-max: calc(100vh - 50px);
+        --wrapper-height: calc(56.25vw);
+        --wrapper-width: calc(177.78vh);
+        --wrapper-height-max: calc(100vh);
+        --wrapper-offset: 0px;
         --grid-rows: repeat(4, 1fr);
         --grid-columns: repeat(4, 1fr);
         --cell-visibility: block;
         --cell-visibility-mobile: none;
+        --menu-margin: 25px;
+    }
+}
+@media only screen and (min-width: 177.79vh) {
+     :root {
+        --wrapper-height: calc(56.25vw - 50px);
+        --wrapper-width: calc(177.78vh - 50px);
+        --wrapper-height-max: calc(100vh - 50px);
+        --wrapper-offset: -50px;
+        --grid-rows: repeat(4, 1fr);
+        --grid-columns: repeat(4, 1fr);
+        --cell-visibility: block;
+        --cell-visibility-mobile: none;
+        --menu-margin: 25px;
     }
 }
 
@@ -41,7 +58,6 @@ Variables
     --banner-height: 50px;
 
     --menu-colour: #02ff00;
-    --menu-margin: 25px;
     --menu-border-radius: 12px;
 }
 

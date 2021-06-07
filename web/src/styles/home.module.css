@@ -16,7 +16,7 @@
     max-height: var(--wrapper-height-max);
     max-width: var(--wrapper-width);
     margin: auto;
-    top: -50px;
+    top: var(--wrapper-offset);
     bottom: 0;
     left: 0;
     right: 0;
