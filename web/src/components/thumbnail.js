@@ -14,7 +14,6 @@ const Thumbnail = (props) => {
         <div
             className={style.thumbnail}
             onMouseOver={() => setVisible((prevVisible) => !prevVisible)}
-            onClick={() => setVisible((prevVisible) => !prevVisible)}
             onFocus={() => setVisible((prevVisible) => !prevVisible)}
             role="presentation"
             style={{ opacity: visible ? "1" : "0" }}
