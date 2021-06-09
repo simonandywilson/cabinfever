@@ -27,9 +27,17 @@ const Thumbnail = (props) => {
                         <div
                             className={style.colour}
                             key={thumbs._key}
-                            style={{ background: image.backgroundColor }}
+                            style={{
+                                background: image.backgroundColor,
+                                display: currentThumbnail ? "block" : "none",
+                            }}
                         >
-                            <GatsbyImage image={image} alt={""} draggable="false" />
+                            <GatsbyImage
+                                image={image}
+                                aspectRatio={16 / 9}
+                                alt={""}
+                                draggable="false"
+                            />
                         </div>
                     )
                 );
@@ -62,7 +70,7 @@ const getData = graphql`
                 end
                 thumbnail {
                     asset {
-                        gatsbyImageData(layout: FULL_WIDTH, fit: CLIP)
+                        gatsbyImageData(layout: FULL_WIDTH)
                     }
                 }
             }
