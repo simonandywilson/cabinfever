@@ -39,8 +39,8 @@ const Home = ({ data }) => {
                         {order.map((order, i) => {
                             return <Cell key={i} index={i} order={order} />;
                         })}
-                        <Tick direction={"toRight"} offset={"100%"} name={"cabin"} />
-                        <Tick direction={"toLeft"} offset={"0"} name={"fever"} />
+                        <Tick direction={"toLeft"} offset={"0"} name={"cabin"} />
+                        <Tick direction={"toRight"} offset={"100%"} name={"fever"} />
                     </div>
                 </div>
                 <div className={style.wrapper}>
