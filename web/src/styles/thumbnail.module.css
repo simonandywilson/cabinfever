@@ -12,6 +12,7 @@
 }
 
 .colour {
+    position: absolute;
     height: 120%;
     width: 120%;
     pointer-events: none;
