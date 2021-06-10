@@ -8,12 +8,11 @@
     -ms-user-select: none;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
-    
 }
 
 .colour {
     position: absolute;
-    height: 120%;
-    width: 120%;
+    height: 102%;
+    width: 102%;
     pointer-events: none;
 }
