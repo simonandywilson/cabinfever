@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import * as style from "../styles/thumbnail.module.css";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -22,24 +22,22 @@ const Thumbnail = (props) => {
                 const currentThumbnail = isTimeBetween(thumbs.start, thumbs.end, props.time);
                 const image = getImage(thumbs.thumbnail[props.index].asset);
 
-                return (
-                    currentThumbnail && (
-                        <div
-                            className={style.colour}
-                            key={thumbs._key}
-                            style={{
-                                display: currentThumbnail ? "block" : "none",
-                            }}
-                        >
-                            <GatsbyImage
-                                image={image}
-                                aspectRatio={16 / 9}
-                                alt={""}
-                                draggable="false"
-                            />
-                        </div>
-                    )
-                );
+                return currentThumbnail === true ? (
+                    <div
+                        className={style.colour}
+                        key={thumbs._key}
+                        style={{
+                            display: currentThumbnail ? "block" : "none",
+                        }}
+                    >
+                        <GatsbyImage
+                            image={image}
+                            aspectRatio={16 / 9}
+                            alt={""}
+                            draggable="false"
+                        />
+                    </div>
+                ) : null;
             })}
         </div>
     );
