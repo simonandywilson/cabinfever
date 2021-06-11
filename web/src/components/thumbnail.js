@@ -28,7 +28,6 @@ const Thumbnail = (props) => {
                             className={style.colour}
                             key={thumbs._key}
                             style={{
-                                background: image.backgroundColor,
                                 display: currentThumbnail ? "block" : "none",
                             }}
                         >
