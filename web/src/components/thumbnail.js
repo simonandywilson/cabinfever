@@ -24,16 +24,13 @@ const Thumbnail = (props) => {
                 return (
                     <div
                         className={style.colour}
-                        key={thumbs._key}
+                        key={thumbs.thumbnail[props.index]._key}
                         style={{
-                            display: currentThumbnail ? "block" : "none", background: image.backgroundColor
+                            display: currentThumbnail ? "block" : "none",
+                            background: image.backgroundColor,
                         }}
                     >
-                        <GatsbyImage
-                            image={image}
-                            alt={""}
-                            draggable="false"
-                        />
+                        <GatsbyImage image={image} alt={""} draggable="false" />
                     </div>
                 );
             })}
