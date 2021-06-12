@@ -26,12 +26,11 @@ const Thumbnail = (props) => {
                         className={style.colour}
                         key={thumbs._key}
                         style={{
-                            display: currentThumbnail ? "block" : "none",
+                            display: currentThumbnail ? "block" : "none", background: image.backgroundColor
                         }}
                     >
                         <GatsbyImage
                             image={image}
-                            aspectRatio={16 / 9}
                             alt={""}
                             draggable="false"
                         />
@@ -61,10 +60,10 @@ const getData = graphql`
     {
         allSanityContent {
             nodes {
-                _key
                 start
                 end
                 thumbnail {
+                    _key
                     asset {
                         gatsbyImageData(layout: FULL_WIDTH)
                     }
