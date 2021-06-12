@@ -21,8 +21,7 @@ const Thumbnail = (props) => {
             {content.map((thumbs) => {
                 const currentThumbnail = isTimeBetween(thumbs.start, thumbs.end, props.time);
                 const image = getImage(thumbs.thumbnail[props.index].asset);
-
-                return currentThumbnail === true ? (
+                return (
                     <div
                         className={style.colour}
                         key={thumbs._key}
@@ -37,7 +36,7 @@ const Thumbnail = (props) => {
                             draggable="false"
                         />
                     </div>
-                ) : null;
+                );
             })}
         </div>
     );
