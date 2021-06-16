@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import * as style from "../styles/thumbnail.module.css";
 import { useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import moment from "moment";
+import { isMobile } from "react-device-detect";
+import Thumb from "../components/thumb";
 
 const Thumbnail = (props) => {
     const {
@@ -10,45 +10,39 @@ const Thumbnail = (props) => {
     } = useStaticQuery(getData);
     const [visible, setVisible] = useState(true);
 
+    const mouseOver = () => {
+        if (!isMobile) {
+            setVisible((prevVisible) => !prevVisible);
+        }
+    };
+
+    const click = () => {
+        if (isMobile) {
+            setVisible((prevVisible) => !prevVisible);
+        }
+    };
+
     return (
         <div
             className={style.thumbnail}
-            onMouseOver={() => setVisible((prevVisible) => !prevVisible)}
-            onFocus={() => setVisible((prevVisible) => !prevVisible)}
+            onMouseOver={mouseOver}
+            onFocus={mouseOver}
+            onClick={click}
             role="presentation"
             style={{ opacity: visible ? "1" : "0" }}
         >
-            {content.map((thumbs) => {
-                const currentThumbnail = isTimeBetween(thumbs.start, thumbs.end, props.time);
-                const image = getImage(thumbs.thumbnail[props.index].asset);
+            {content.map((thumb) => {
                 return (
-                    <div
-                        className={style.colour}
-                        key={thumbs.thumbnail[props.index]._key}
-                        style={{
-                            display: currentThumbnail ? "block" : "none",
-                            background: image.backgroundColor,
-                        }}
-                    >
-                        <GatsbyImage image={image} alt={""} draggable="false" />
-                    </div>
+                    <Thumb
+                        key={thumb.thumbnail[props.index]._key}
+                        image={thumb.thumbnail[props.index].asset}
+                        time={thumb}
+                        server={props.time}
+                    />
                 );
             })}
         </div>
     );
-};
-
-const isTimeBetween = function (startTime, endTime, serverTime) {
-    let start = moment(startTime, "H:mm");
-    let end = moment(endTime, "H:mm");
-    let server = moment(serverTime, "H:mm");
-    if (end < start) {
-        return (
-            (server >= start && server <= moment("23:59:59", "h:mm:ss")) ||
-            (server >= moment("0:00:00", "h:mm:ss") && server < end)
-        );
-    }
-    return server >= start && server < end;
 };
 
 export default Thumbnail;
