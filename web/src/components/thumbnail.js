@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import * as style from "../styles/thumbnail.module.css";
-import { useStaticQuery, graphql } from "gatsby";
 import { isMobile } from "react-device-detect";
-import Thumb from "../components/thumb";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Thumbnail = (props) => {
-    const {
-        allSanityContent: { nodes: content },
-    } = useStaticQuery(getData);
     const [visible, setVisible] = useState(true);
 
     const mouseOver = () => {
@@ -22,6 +18,8 @@ const Thumbnail = (props) => {
         }
     };
 
+    const image = getImage(props.image);
+
     return (
         <div
             className={style.thumbnail}
@@ -31,35 +29,16 @@ const Thumbnail = (props) => {
             role="presentation"
             style={{ opacity: visible ? "1" : "0" }}
         >
-            {content.map((thumb) => {
-                return (
-                    <Thumb
-                        key={thumb.thumbnail[props.index]._key}
-                        image={thumb.thumbnail[props.index].asset}
-                        time={thumb}
-                        server={props.time}
-                    />
-                );
-            })}
+            <div
+                className={style.colour}
+                style={{
+                    background: props.image.backgroundColor,
+                }}
+            >
+                <GatsbyImage image={image} alt={""} draggable="false" />
+            </div>
         </div>
     );
 };
 
 export default Thumbnail;
-
-const getData = graphql`
-    {
-        allSanityContent {
-            nodes {
-                start
-                end
-                thumbnail {
-                    _key
-                    asset {
-                        gatsbyImageData(layout: FULL_WIDTH)
-                    }
-                }
-            }
-        }
-    }
-`;
