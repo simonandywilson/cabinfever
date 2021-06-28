@@ -26,7 +26,11 @@ const Home = ({ data }) => {
         return sortContent;
     }, [time, content]);
 
-    const [active] = useState(getContent);
+    const [active, setActive] = useState(null);
+
+    useEffect(() => {
+        setActive(getContent);
+    }, [time]);
 
     useEffect(() => {
         const interval = setInterval(
@@ -60,13 +64,15 @@ const Home = ({ data }) => {
                     </div>
                 </div>
                 <div className={style.wrapper}>
-                    <div className={style.grid}>
-                        {active[0].map((thumb) => {
-                            return <Thumbnail key={thumb._key} image={thumb.asset} />;
-                        })}
-                        <Thumbnail image={active[0][0].asset} />
-                        <Thumbnail image={active[0][1].asset} />
-                    </div>
+                    {active && (
+                        <div className={style.grid}>
+                            {active[0].map((thumb) => {
+                                return <Thumbnail key={thumb._key} image={thumb.asset} />;
+                            })}
+                            <Thumbnail image={active[0][0].asset} />
+                            <Thumbnail image={active[0][1].asset} />
+                        </div>
+                    )}
                 </div>
                 <div className={style.wrapper} style={{ pointerEvents: "none" }}>
                     <div className={style.grid}>
