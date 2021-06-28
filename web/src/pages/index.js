@@ -26,7 +26,19 @@ const Home = ({ data }) => {
         return sortContent;
     }, [time, content]);
 
-    const [active] = useState(getContent);
+    const [active, setActive] = useState(() => {
+        const sortContent = content.reduce((result, current) => {
+            if (isTimeBetween(current.start, current.end, time)) {
+                result.push(current.thumbnail);
+            }
+            return result;
+        }, []);
+        return sortContent;
+    });
+
+    useEffect(() => {
+        setActive(getContent);
+    }, [time, getContent]);
 
     useEffect(() => {
         const interval = setInterval(
