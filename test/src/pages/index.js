@@ -12,12 +12,8 @@ import Banner from "../components/banner";
 const Home = ({ data }) => {
     const order = data.sanityAbout.order;
     const content = data.allSanityContent.nodes;
-    // const [time, setTime] = useState(
-    //     new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false })
-    // );
-
     const [time, setTime] = useState(
-       "08:30"
+        new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false })
     );
 
     const getContent = useMemo(() => {
