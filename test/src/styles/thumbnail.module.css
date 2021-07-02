@@ -1,0 +1,21 @@
+.thumbnail {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    background: #ffffff;
+}
+
+.colour {
+    position: absolute;
+    height: 102%;
+    width: 102%;
+    right: 0.5%;
+    bottom: 0.5%;
+    pointer-events: none;
+}
