@@ -20,6 +20,7 @@ const Home = ({ data }) => {
     const getContent = useMemo(() => {
         const sortContent = content.reduce((result, current) => {
             if (isTimeBetween(current.start, current.end, time)) {
+                console.log("current thumbnail", current.thumbnail);
                 result.push(current.thumbnail);
             }
             return result;
@@ -39,6 +40,7 @@ const Home = ({ data }) => {
     // });
 
     const [active, setActive] = useState(null);
+    console.log("active", active);
 
     useEffect(() => {
         setActive(getContent);
