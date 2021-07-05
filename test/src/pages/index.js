@@ -12,11 +12,10 @@ import Banner from "../components/banner";
 const Home = ({ data }) => {
     const order = data.sanityAbout.order;
     const content = data.allSanityContent.nodes;
-    let current = [];
     // const [time, setTime] = useState(
     //     new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false })
     // );
-    const [time, setTime] = useState("9:00");
+    const [time, setTime] = useState("19:00");
 
     const getContent = useMemo(() => {
         const sortContent = content.reduce((result, current) => {
@@ -28,40 +27,35 @@ const Home = ({ data }) => {
         return sortContent;
     }, [time, content]);
 
-    const [active, setActive] = useState(() => {
-        const sortContent = content.reduce((result, current) => {
-            if (isTimeBetween(current.start, current.end, time)) {
-                console.log(current.thumbnail);
-                result.push(current.thumbnail);
-            }
-            return result;
-        }, []);
-        return sortContent;
-    });
+    // const [active, setActive] = useState(() => {
+    //     const sortContent = content.reduce((result, current) => {
+    //         if (isTimeBetween(current.start, current.end, time)) {
+    //             console.log(current.thumbnail);
+    //             result.push(current.thumbnail);
+    //         }
+    //         return result;
+    //     }, []);
+    //     return sortContent;
+    // });
+
+    const [active, setActive] = useState(null);
 
     useEffect(() => {
         setActive(getContent);
     }, [time, getContent]);
 
-    // useEffect(() => {
-    //     const interval = setInterval(
-    //         () =>
-    //             setTime(
-    //                 new Date().toLocaleTimeString([], {
-    //                     hour: "2-digit",
-    //                     minute: "2-digit",
-    //                     hour12: false,
-    //                 })
-    //             ),
-    //         60000
-    //     );
-    //     return () => {
-    //         clearInterval(interval);
-    //     };
-    // }, []);
-
     useEffect(() => {
-        const interval = setInterval(() => setTime("03:00"), 10000);
+        const interval = setInterval(
+            () =>
+                setTime(
+                    new Date().toLocaleTimeString([], {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: false,
+                    })
+                ),
+            60000
+        );
         return () => {
             clearInterval(interval);
         };
@@ -83,11 +77,13 @@ const Home = ({ data }) => {
                 </div>
                 <div className={style.wrapper}>
                     <div className={style.grid}>
-                        {active[0].map((thumb) => {
-                            return <Thumbnail key={thumb._key} image={thumb.asset} />;
-                        })}
-                        <Thumbnail image={active[0][0].asset} />
-                        <Thumbnail image={active[0][1].asset} />
+                        {active &&
+                            active[0].map((thumb) => {
+                                return <Thumbnail key={thumb._key} image={thumb.asset} />;
+                            })}
+
+                        {active && <Thumbnail image={active[0][0].asset} />}
+                        {active && <Thumbnail image={active[0][1].asset} />}
                     </div>
                 </div>
                 <div className={style.wrapper} style={{ pointerEvents: "none" }}>
