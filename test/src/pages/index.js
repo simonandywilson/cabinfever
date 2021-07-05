@@ -12,10 +12,10 @@ import Banner from "../components/banner";
 const Home = ({ data }) => {
     const order = data.sanityAbout.order;
     const content = data.allSanityContent.nodes;
-    // const [time, setTime] = useState(
-    //     new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false })
-    // );
-    const [time, setTime] = useState("19:00");
+    const [time, setTime] = useState(
+        new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false })
+    );
+    const [active, setActive] = useState(null);
 
     const getContent = useMemo(() => {
         const sortContent = content.reduce((result, current) => {
@@ -27,20 +27,6 @@ const Home = ({ data }) => {
         }, []);
         return sortContent;
     }, [time, content]);
-
-    // const [active, setActive] = useState(() => {
-    //     const sortContent = content.reduce((result, current) => {
-    //         if (isTimeBetween(current.start, current.end, time)) {
-    //             console.log(current.thumbnail);
-    //             result.push(current.thumbnail);
-    //         }
-    //         return result;
-    //     }, []);
-    //     return sortContent;
-    // });
-
-    const [active, setActive] = useState(null);
-    console.log("active", active);
 
     useEffect(() => {
         setActive(getContent);
