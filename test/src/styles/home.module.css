@@ -44,6 +44,7 @@
     border-top: var(--cell-border);
     border-left: var(--cell-border);
     overflow: hidden;
+    transition: 0.5s;
 }
 
 .grid {

@@ -69,7 +69,10 @@ const Home = ({ data }) => {
             <main className={style.container}>
                 <Menu />
                 <div className={style.wrapper}>
-                    <div className={style.gridLarge}>
+                    <div
+                        className={style.gridLarge}
+                        style={{ visibility: active ? "visible" : "hidden" }}
+                    >
                         {order.map((order, i) => {
                             return <Cell key={i} index={i} order={order} />;
                         })}
