@@ -15,26 +15,18 @@ const Home = ({ data }) => {
     const [time, setTime] = useState(
         new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false })
     );
+    const [active, setActive] = useState(null);
 
     const getContent = useMemo(() => {
         const sortContent = content.reduce((result, current) => {
             if (isTimeBetween(current.start, current.end, time)) {
+                console.log("current thumbnail", current.thumbnail);
                 result.push(current.thumbnail);
             }
             return result;
         }, []);
         return sortContent;
     }, [time, content]);
-
-    const [active, setActive] = useState(() => {
-        const sortContent = content.reduce((result, current) => {
-            if (isTimeBetween(current.start, current.end, time)) {
-                result.push(current.thumbnail);
-            }
-            return result;
-        }, []);
-        return sortContent;
-    });
 
     useEffect(() => {
         setActive(getContent);
@@ -63,7 +55,10 @@ const Home = ({ data }) => {
             <main className={style.container}>
                 <Menu />
                 <div className={style.wrapper}>
-                    <div className={style.gridLarge}>
+                    <div
+                        className={style.gridLarge}
+                        style={{ visibility: active ? "visible" : "hidden" }}
+                    >
                         {order.map((order, i) => {
                             return <Cell key={i} index={i} order={order} />;
                         })}
@@ -73,11 +68,13 @@ const Home = ({ data }) => {
                 </div>
                 <div className={style.wrapper}>
                     <div className={style.grid}>
-                        {active[0].map((thumb) => {
-                            return <Thumbnail key={thumb._key} image={thumb.asset} />;
-                        })}
-                        <Thumbnail image={active[0][0].asset} />
-                        <Thumbnail image={active[0][1].asset} />
+                        {active &&
+                            active[0].map((thumb) => {
+                                return <Thumbnail key={thumb._key} image={thumb.asset} />;
+                            })}
+
+                        {active && <Thumbnail image={active[0][0].asset} />}
+                        {active && <Thumbnail image={active[0][1].asset} />}
                     </div>
                 </div>
                 <div className={style.wrapper} style={{ pointerEvents: "none" }}>
