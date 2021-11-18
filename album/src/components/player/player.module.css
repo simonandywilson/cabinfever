@@ -1,0 +1,50 @@
+.player {
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    bottom: 0;
+    background: #000000;
+    z-index: 999;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.player * {
+    margin: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.seek {
+    position: relative;
+    width: 200px;
+    min-height: 0;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding: 0;
+}
+
+.line {
+    width: 100%;
+    height: 3px;
+    background: #ffffff;
+    overflow: visible;
+}
+
+.playhead {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #ffffff;
+}

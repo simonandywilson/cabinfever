@@ -1,0 +1,35 @@
+.banner {
+    position: fixed;
+    height: var(--header-footer-height);
+    width: 100%;
+    bottom: 0;
+    color: #ffffff;
+    background: #000000;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-banner);
+}
+
+.wrapper {
+    height: max-content;
+    width: 100%;
+}
+
+.wrapper > div {
+    overflow: visible!important;
+}
+
+.text {
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.text:visited,
+.text:active,
+.text:hover {
+    color: #ffffff;
+}

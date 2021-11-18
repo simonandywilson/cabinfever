@@ -1,0 +1,8 @@
+node_modules/
+.cache/
+public
+# ignore node_modules symlink
+node_modules
+node_modules.nosync
+
+node_modules.nosync

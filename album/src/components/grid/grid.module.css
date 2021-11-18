@@ -1,0 +1,16 @@
+.container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.grid {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-album-columns), var(--column-width));
+    grid-auto-rows: calc(((100vw / var(--grid-album-columns)) * var(--aspect)));
+    z-index: 0;
+    padding-left: var(--border-width);
+}

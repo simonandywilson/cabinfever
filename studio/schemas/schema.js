@@ -11,6 +11,9 @@ import content from "./documents/content"
 import thumbnail from "./objects/project/thumbnail"
 import layout from "./objects/project/layout"
 
+import album from "./documents/album";
+import card from "./objects/album/card";
+
 
 export default createSchema({
     name: "mySchema",
@@ -23,6 +26,9 @@ export default createSchema({
 
         content,
         thumbnail,
-        layout
+        layout,
+
+        album,
+        card,
     ]),
 });
