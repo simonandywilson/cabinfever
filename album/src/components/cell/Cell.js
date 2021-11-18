@@ -5,7 +5,6 @@ import Fever from "../../images/fever.svg";
 
 const Cell = (props) => {
     const cabin = props.order === "CABIN" ? true : false;
-
     return (
         <div className={style.container}>
             <div className={style.text}>
