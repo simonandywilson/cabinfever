@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ContextProvider from "../../state/GlobalState";
+import Seo from "../seo/Seo";
 import Menu from "../menu/Menu";
 import Header from "../header/Header";
 import About from "../about/About";
@@ -13,6 +14,7 @@ const Layout = ({ children }) => {
     
     return (
         <ContextProvider>
+            <Seo />
             <main className={style.layout}>
                 <Menu />
                 <Header about={about} setAbout={setAbout} setSearch={setSearch} />

@@ -4,6 +4,13 @@ import { useCurrentContext } from "../../state/GlobalState";
 
 const Footer = () => {
     const CurrentState = useCurrentContext();
+
+    const setTypeface = {
+        diatype: "var(--font-family)",
+        arial: "var(--arial)",
+        open: "var(--open-sans)",
+    };
+
     return (
         <footer className={style.footer}>
             <h1 className={style.number}>
@@ -11,7 +18,9 @@ const Footer = () => {
                 {CurrentState.number}
             </h1>
             <h1 className={style.language}>{CurrentState.language}</h1>
-            <h1 className={style.title}>{CurrentState.track}</h1>
+            <h1 className={style.title} style={{ fontFamily: setTypeface[CurrentState.typeface] }}>
+                {CurrentState.track}
+            </h1>
         </footer>
     );
 };

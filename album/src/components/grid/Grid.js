@@ -6,6 +6,7 @@ import * as style from "./grid.module.css";
 import Card from "../card/Card";
 
 const Grid = ({ track }) => {
+    console.log(track);
     const CurrentUpdate = useCurrentUpdateContext();
 
     const { ref, inView } = useInView({
@@ -17,6 +18,7 @@ const Grid = ({ track }) => {
             track: track.title,
             number: track.number,
             language: track.language,
+            typeface: track.typeface
         });
     }, [inView]);
 
@@ -30,6 +32,8 @@ const Grid = ({ track }) => {
                         code={card.filename.current}
                         number={track.number}
                         image={card.asset}
+                        alignment={track.alignment}
+                        typeface={track.typeface}
                     />
                 );
             })}

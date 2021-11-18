@@ -22,6 +22,8 @@ export const query = graphql`
                 title
                 number
                 language
+                alignment
+                typeface
                 cards {
                     _key
                     asset {

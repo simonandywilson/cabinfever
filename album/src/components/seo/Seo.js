@@ -3,7 +3,12 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = () => {
-    const { sanitySeo: seo, site:{siteMetadata:{siteUrl}} } = useStaticQuery(getData);
+    const {
+        sanitySeo: seo,
+        site: {
+            siteMetadata: { siteUrl },
+        },
+    } = useStaticQuery(getData);
 
     return (
         <Helmet>
@@ -26,6 +31,12 @@ const SEO = () => {
             <meta property="twitter:title" content={seo.title} />
             <meta property="twitter:description" content={seo.description} />
             <meta property="twitter:image" content={seo.banner.asset.url}></meta>
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+            <link
+                href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+                rel="stylesheet"
+            />
         </Helmet>
     );
 };

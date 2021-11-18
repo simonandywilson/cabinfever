@@ -30,6 +30,7 @@ const ContextProvider = ({ children }) => {
         track: "",
         number: 0,
         language: "",
+        typeface: "diatype"
     });
     const [search, setSearch] = useState(null);
 

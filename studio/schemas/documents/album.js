@@ -23,7 +23,7 @@ export default {
             type: "string",
         },
         {
-            title: "Alignment",
+            title: "Text Alignment",
             name: "alignment",
             type: "string",
             options: {
@@ -33,6 +33,18 @@ export default {
                 ],
                 layout: "radio",
                 direction: "horizontal",
+            },
+        },
+        {
+            title: "Typeface",
+            name: "typeface",
+            type: "string",
+            options: {
+                list: [
+                    { title: "Diatype", value: "diatype" },
+                    { title: "Arial", value: "arial" },
+                    { title: "Open Sans", value: "open" },
+                ],
             },
         },
         {

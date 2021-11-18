@@ -6,16 +6,33 @@ import { useCurrentContext } from "../../state/GlobalState";
 const Header = ({ about, setAbout, setSearch }) => {
     const CurrentState = useCurrentContext();
 
+    const setTypeface = {
+        diatype: "var(--font-family)",
+        arial: "var(--arial)",
+        open: "var(--open-sans)",
+    };
+
     return (
         <header className={style.header}>
-            <h1 className={style.track}>{CurrentState.track}</h1>
+            <h1 className={style.track} style={{ fontFamily: setTypeface[CurrentState.typeface] }}>
+                {CurrentState.track}
+            </h1>
             <div className={style.info}>
-                <button className={style.about} onClick={() => { setAbout((prevAbout) => !prevAbout); setSearch(false)}}>
+                <button
+                    className={style.about}
+                    onClick={() => {
+                        setAbout((prevAbout) => !prevAbout);
+                        setSearch(false);
+                    }}
+                >
                     {about ? "Close" : "About"}
                 </button>
                 <button
                     className={style.search}
-                    onClick={() => { setSearch((prevSearch) => !prevSearch); setAbout(false)}}
+                    onClick={() => {
+                        setSearch((prevSearch) => !prevSearch);
+                        setAbout(false);
+                    }}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

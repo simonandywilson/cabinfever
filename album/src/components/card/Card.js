@@ -4,7 +4,7 @@ import * as style from "./card.module.css";
 import { useSearchContext, useCurrentUpdateContext } from "../../state/GlobalState";
 import { useInView } from "react-intersection-observer";
 
-const Card = ({ track, code, number, image }) => {
+const Card = ({ track, code, number, image, alignment, typeface }) => {
     const [hover, setHover] = useState(false);
     const SearchState = useSearchContext();
     const cardImage = getImage(image);
@@ -22,6 +22,12 @@ const Card = ({ track, code, number, image }) => {
     //     });
     //     console.log("in view");
     // }, [inView]);
+
+    const setTypeface = {
+        diatype: "var(--font-family)",
+        arial: "var(--arial)",
+        open: "var(--open-sans)",
+    };
 
     return (
         <div
@@ -42,9 +48,10 @@ const Card = ({ track, code, number, image }) => {
                 className={style.text}
                 style={{
                     opacity: hover ? 1 : 0,
+                    textAlign: alignment === "left" ? "left" : "right"
                 }}
             >
-                <p className={style.track}>{track}</p>
+                <p className={style.track} style={{fontFamily: setTypeface[typeface]}}>{track}</p>
                 <p className={style.code}>({code})</p>
                 <p className={style.number}>{number}</p>
             </div>
