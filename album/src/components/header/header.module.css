@@ -25,9 +25,10 @@
     text-transform: uppercase;
     justify-self: end;
     display: flex;
-    justify-content: var(--header-info-justify);
+    /* justify-content: var(--header-info-justify); */
+    justify-content: end;
     align-items: center;
-    padding-right: var(--padding);
+    /* padding-right: var(--padding); */
 }
 
 .about {

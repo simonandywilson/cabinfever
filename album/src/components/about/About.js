@@ -35,7 +35,7 @@ const About = ({ about }) => {
                     of music from the 24-hour digital art work.
                     <br />
                     <br />
-                    Buy the album and find your limited edition colour{" "}
+                    Buy the album{" "}
                     <a href="https://nmc-recordings.myshopify.com/collections/new-releases-2021/products/esmeralda-conde-ruiz-cabin-fever" rel="noreferrer" target="_blank" >
                         here
                     </a>

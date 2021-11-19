@@ -7,7 +7,7 @@
     z-index: 90;
     padding-left: var(--about-padding);
     overflow: hidden;
-    font-family: diatype_mono;
+    
 }
 
 .overflow {
@@ -30,6 +30,7 @@
 
 .wrapper > p {
     font-size: var(--font-size-about);
+    font-family: diatype_mono;
 }
 
 .wrapper > p > a {

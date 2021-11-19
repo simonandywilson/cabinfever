@@ -27,7 +27,7 @@ const Header = ({ about, setAbout, setSearch }) => {
                 >
                     {about ? "Close" : "About"}
                 </button>
-                <button
+                {/* <button
                     className={style.search}
                     onClick={() => {
                         setSearch((prevSearch) => !prevSearch);
@@ -60,7 +60,7 @@ const Header = ({ about, setAbout, setSearch }) => {
                             strokeWidth="4"
                         />
                     </svg>
-                </button>
+                </button> */}
             </div>
         </header>
     );

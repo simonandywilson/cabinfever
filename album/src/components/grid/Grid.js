@@ -1,29 +1,28 @@
-import React, { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import React, { useEffect, useRef } from "react";
 import { useCurrentUpdateContext } from "../../state/GlobalState";
 import * as style from "./grid.module.css";
+import useOnScreen from "../../hooks/useOnScreen";
 
 import Card from "../card/Card";
 
 const Grid = ({ track }) => {
-    console.log(track);
     const CurrentUpdate = useCurrentUpdateContext();
-
-    const { ref, inView } = useInView({
-        threshold: 0.5,
-    });
+    const gridRef = useRef();
+    const onScreen = useOnScreen(gridRef);
 
     useEffect(() => {
-        CurrentUpdate({
-            track: track.title,
-            number: track.number,
-            language: track.language,
-            typeface: track.typeface
-        });
-    }, [inView]);
+        if (onScreen) {
+            CurrentUpdate({
+                track: track.title,
+                number: track.number,
+                language: track.language,
+                typeface: track.typeface,
+            });
+        }
+    }, [onScreen]);
 
     return (
-        <div className={style.grid} ref={ref}>
+        <div className={style.grid} ref={gridRef}>
             {track.cards.map((card) => {
                 return (
                     <Card

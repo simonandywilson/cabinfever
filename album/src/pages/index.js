@@ -8,6 +8,7 @@ import Cell from "../components/cell/Cell";
 import Tick from "../components/tick/Tick";
 import Thumbnail from "../components/thumbnail/Thumbnail";
 import Banner from "../components/banner/Banner";
+import About from "../components/about/About";
 
 const Home = ({ data }) => {
     const order = data.sanityAbout.order;
@@ -16,6 +17,7 @@ const Home = ({ data }) => {
         new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false })
     );
     const [active, setActive] = useState(null);
+    const [about, setAbout] = useState(false)
 
     const getContent = useMemo(() => {
         const sortContent = content.reduce((result, current) => {
@@ -53,6 +55,17 @@ const Home = ({ data }) => {
             <Seo />
             <main className={style.container}>
                 <Menu />
+                <header className={style.header}>
+                    <button
+                        className={style.about}
+                        onClick={() => {
+                            setAbout((prevAbout) => !prevAbout);
+                        }}
+                    >
+                        {about ? "Close" : "About"}
+                    </button>
+                </header>
+                <About about={about }/>
                 <div className={style.wrapper}>
                     <div
                         className={style.gridLarge}

@@ -1,45 +1,3 @@
-/*----------------------------------------
-Media Queries
-----------------------------------------*/
-
-/* Portrait */
-@media only screen and (max-width: 599px) {
-    :root {
-        
-        --menu-margin: 15px;
-    }
-}
-@media only screen and (min-width: 600px) {
-    :root {
-        --wrapper-height: calc(56.25vw);
-        --wrapper-width: calc(177.78vh);
-        --wrapper-height-max: calc(100vh);
-        --wrapper-offset: 0px;
-        --grid-rows: repeat(4, 1fr);
-        --grid-columns: repeat(4, 1fr);
-        --grid-rows-large: repeat(4, 1fr);
-        --grid-columns-large: repeat(2, 1fr);
-        --cell-visibility: block;
-        --cell-visibility-mobile: none;
-        --menu-margin: 25px;
-    }
-}
-@media only screen and (min-width: 177.79vh) {
-     :root {
-        --wrapper-height: calc(56.25vw - 50px);
-        --wrapper-width: calc(177.78vh - 50px);
-        --wrapper-height-max: calc(100vh - 50px);
-        --wrapper-offset: -50px;
-        --grid-rows: repeat(4, 1fr);
-        --grid-columns: repeat(4, 1fr);
-        --grid-rows-large: repeat(4, 1fr);
-        --grid-columns-large: repeat(2, 1fr);
-        --cell-visibility: block;
-        --cell-visibility-mobile: none;
-        --menu-margin: 25px;
-    }
-}
-
 .container {
     height: 100%;
     width: 100%;
@@ -104,18 +62,41 @@ Media Queries
     overflow: hidden;
 }
 
-.grid > div:nth-child(-n+16) {
+.grid > div:nth-child(-n + 16) {
     display: var(--cell-visibility);
 }
 
-.grid > div:nth-child(n+17) {
+.grid > div:nth-child(n + 17) {
     display: var(--cell-visibility-mobile);
 }
 
-.gridLarge > div:nth-child(-n+8) {
+.gridLarge > div:nth-child(-n + 8) {
     display: var(--cell-visibility);
 }
 
-.gridLarge > div:nth-child(n+9) {
+.gridLarge > div:nth-child(n + 9) {
     display: var(--cell-visibility-mobile);
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    height: var(--header-footer-height);
+    top: 0;
+    left: 0;
+    background: #000000;
+    z-index: 95;
+    display: flex;
+    color: #ffffff;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.about {
+    all: unset;
+    grid-column: 5/6;
+    margin-top: var(--text-offset);
+    cursor: pointer;
+    padding-right: var(--padding);
+    text-transform: uppercase;
 }
