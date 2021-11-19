@@ -16,6 +16,7 @@
 .number {
     margin-top: var(--text-offset);
     padding-left: var(--padding);
+    display: var(--footer-number-display);
 }
 
 .track {
@@ -31,8 +32,10 @@
 
 .title {
     display: var(--footer-title-display);
+    white-space: nowrap;
     justify-self: end;
     text-align: right;
     padding-right: var(--padding);
+    padding-left: var(--padding);
     text-transform: capitalize;
 }

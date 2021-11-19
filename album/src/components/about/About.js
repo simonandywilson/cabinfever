@@ -36,9 +36,28 @@ const About = ({ about }) => {
                     <br />
                     <br />
                     Buy the album{" "}
-                    <a href="https://nmc-recordings.myshopify.com/collections/new-releases-2021/products/esmeralda-conde-ruiz-cabin-fever" rel="noreferrer" target="_blank" >
+                    <a
+                        href="https://nmc-recordings.myshopify.com/collections/new-releases-2021/products/esmeralda-conde-ruiz-cabin-fever"
+                        rel="noreferrer"
+                        target="_blank"
+                    >
                         here
                     </a>
+                    <br />
+                    <br />
+                    <a
+                        href="https://www.instagram.com/cabinfever24hours/"
+                        rel="noreferrer"
+                        target="_blank"
+                    >
+                        Instagram
+                    </a>
+                    <br />
+                    <a href="https://twitter.com/CF24hours" rel="noreferrer" target="_blank">
+                        Twitter
+                    </a>
+                    <br />
+                    <a href="mailto:cabinfever24hours@gmail.com">Email</a>
                 </p>
             </div>
         </motion.div>

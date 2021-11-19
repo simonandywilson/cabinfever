@@ -2,12 +2,56 @@
 Media Queries
 ----------------------------------------*/
 
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 339px) {
     :root {
         /* Global */
-        --font-size: 1.4rem;
+        --font-size: 1.6rem;
+        --font-size-menu: 2.2rem;
         --font-size-about: 1.3rem;
-        --menu-width: 45px;
+
+        /* Home */
+        --wrapper-height: 112.5vw; /* 9/8 = 1.125 */
+        --wrapper-width: 88.88vh; /* 8/9 = 0.8888 */
+        --wrapper-height-max: 100vh;
+        --wrapper-offset: 0px;
+        --grid-rows: repeat(2, 1fr);
+        --grid-columns: repeat(1, 1fr);
+        --grid-rows-large: repeat(2, 1fr);
+        --grid-columns-large: repeat(1, 1fr);
+        --cell-visibility: none;
+        --cell-visibility-mobile: flex;
+
+        /* Album */
+        --card-title-font-size: 8vw;
+        --card-code-font-size: 6vw;
+
+        --grid-album-columns: 1;
+
+        --header-columns: 0.2fr 1fr;
+        --footer-columns: 1fr;
+
+        --header-track-column: 1 / 1;
+        --header-track-display: none;
+        --header-info-column: 2 / 2;
+        --header-info-justify: flex-end;
+        --header-number-display: block;
+
+        --footer-track-display: none;
+        --footer-language-display: none;
+        --footer-title-display: block;
+        --footer-number-display: none;
+
+        --about-padding: var(--padding);
+        --card-padding: var(--padding);
+    }
+}
+
+@media only screen and (min-width: 340px) {
+    :root {
+        /* Global */
+        --font-size: 1.9rem;
+        --font-size-menu: 2.2rem;
+        --font-size-about: 1.3rem;
 
         /* Home */
         --wrapper-height: 112.5vw; /* 9/8 = 1.125 */
@@ -20,7 +64,6 @@ Media Queries
         --grid-columns-large: repeat(1, 1fr);
         --cell-visibility: none;
         --cell-visibility-mobile: flex;
-        --font-size-banner: 2.3rem;
 
         /* Album */
         --card-title-font-size: 8vw;
@@ -28,28 +71,31 @@ Media Queries
 
         --grid-album-columns: 1;
 
-        --header-columns: repeat(var(--grid-album-columns), var(--column-width));
-        --footer-columns: 0.1fr 1fr;
+        --header-columns: 0.2fr 1fr;
+        --footer-columns: 1fr;
 
         --header-track-column: 1 / 1;
         --header-track-display: none;
-        --header-info-column: 1 / 1;
+        --header-info-column: 2 / 2;
         --header-info-justify: flex-end;
+        --header-number-display: block;
 
         --footer-track-display: none;
         --footer-language-display: none;
         --footer-title-display: block;
+        --footer-number-display: none;
 
         --about-padding: var(--padding);
         --card-padding: var(--padding);
     }
 }
+
 @media only screen and (min-width: 641px) {
     :root {
         /* Global */
         --font-size: 2.2rem;
+        --font-size-menu: 2.2rem;
         --font-size-about: 2.1rem;
-        --menu-width: 50px;
 
         /* Home */
         --wrapper-height: calc(56.25vw);
@@ -62,7 +108,6 @@ Media Queries
         --grid-columns-large: repeat(2, 1fr);
         --cell-visibility: block;
         --cell-visibility-mobile: none;
-        --font-size-banner: 2.3rem;
 
         /* Album */
         --card-title-font-size: 4vw;
@@ -77,10 +122,12 @@ Media Queries
         --header-track-display: block;
         --header-info-column: 3 / 3;
         --header-info-justify: space-between;
+        --header-number-display: none;
 
         --footer-track-display: inline-block;
         --footer-language-display: block;
         --footer-title-display: none;
+        --footer-number-display: block;
 
         --about-padding: var(--padding);
 
@@ -91,8 +138,8 @@ Media Queries
     :root {
         /* Global */
         --font-size: 2.3rem;
+        --font-size-menu: 2.3rem;
         --font-size-about: 2.2rem;
-        --menu-width: 50px;
 
         /* Home */
         --wrapper-height: calc(56.25vw);
@@ -105,7 +152,6 @@ Media Queries
         --grid-columns-large: repeat(2, 1fr);
         --cell-visibility: block;
         --cell-visibility-mobile: none;
-        --font-size-banner: 2.3rem;
 
         /* Album */
         --card-title-font-size: 1.65vw;
@@ -119,10 +165,12 @@ Media Queries
         --header-track-display: block;
         --header-info-column: 5 / 6;
         --header-info-justify: space-between;
+        --header-number-display: none;
 
         --footer-track-display: inline-block;
         --footer-language-display: block;
         --footer-title-display: none;
+        --footer-number-display: block;
 
         --about-padding: var(--column-width);
 
@@ -162,6 +210,7 @@ Variables
     --menu-colour: #02ff00;
     --menu-border-radius: 12px;
     --menu-font-size: 2.5rem;
+    --menu-width: 50px;
 
     --cell-border: var(--border-width) solid #000000;
 
