@@ -27,12 +27,14 @@ const Thumbnail = (props) => {
             onFocus={mouseOver}
             onClick={click}
             role="presentation"
-            style={{ opacity: visible ? "1" : "0" }}
+            // style={{ opacity: visible ? "1" : "0" }}
         >
+            <div className={style.border}></div>
             <div
                 className={style.colour}
                 style={{
                     background: props.image.backgroundColor,
+                    opacity: visible ? "1" : "0",
                 }}
             >
                 <GatsbyImage image={image} alt={""} draggable="false" />

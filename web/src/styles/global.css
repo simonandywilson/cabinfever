@@ -5,9 +5,9 @@ Media Queries
 /* Portrait */
 @media only screen and (max-width: 599px) {
     :root {
-        --wrapper-height: 112.5vw; /* 9/8 = 1.125 */
-        --wrapper-width: 88.88vh; /* 8/9 = 0.8888 */
-        --wrapper-height-max: 100vh;
+        --wrapper-height: calc(112.5vw); /* 9/8 = 1.125 */
+        --wrapper-width: calc(88.88vh); /* 8/9 = 0.8888 */
+        --wrapper-height-max: calc(100vh);
         --wrapper-offset: -50px;
         --grid-rows: repeat(2, 1fr);
         --grid-columns: repeat(1, 1fr);
@@ -21,18 +21,35 @@ Media Queries
 @media only screen and (min-width: 600px) {
     :root {
         --wrapper-height: calc(56.25vw);
-        --wrapper-width: calc(177.78vh);
-        --wrapper-height-max: calc(100vh);
+        --wrapper-width: calc(177.77vh - 240px);
+        --wrapper-height-max: calc(100vh - 160px);
         --wrapper-offset: 0px;
-        --grid-rows: repeat(4, 1fr);
+        --grid-rows: repeat(2, 1fr);
+        --grid-columns: repeat(2, 1fr);
+        --grid-rows-large: repeat(2, 1fr);
+        --grid-columns-large: repeat(1, 1fr);
+        --cell-visibility: block;
+        --cell-visibility-mobile: none;
+        --menu-margin: 25px;
+    }
+}
+
+@media only screen and (min-width: calc(148vh)) {
+    :root {
+        --wrapper-height: calc(56.25vw / 1.33);
+        --wrapper-width: calc(100%);
+        --wrapper-height-max: calc(100vh - 160px);
+        --wrapper-offset: 0px;
+        --grid-rows: repeat(3, 1fr);
         --grid-columns: repeat(4, 1fr);
-        --grid-rows-large: repeat(4, 1fr);
+        --grid-rows-large: repeat(3, 1fr);
         --grid-columns-large: repeat(2, 1fr);
         --cell-visibility: block;
         --cell-visibility-mobile: none;
         --menu-margin: 25px;
     }
 }
+/* 
 @media only screen and (min-width: 177.79vh) {
      :root {
         --wrapper-height: calc(56.25vw - 50px);
@@ -47,7 +64,7 @@ Media Queries
         --cell-visibility-mobile: none;
         --menu-margin: 25px;
     }
-}
+} */
 
 /*----------------------------------------
 Variables
@@ -58,9 +75,9 @@ Variables
     --line-height: 100%;
     --padding: 15px;
 
-    --cell-border: 3px solid #000000;
+    --cell-border: 4px solid #000000;
 
-    --banner-height: 50px;
+    --banner-height: 80px;
 
     --menu-colour: #02ff00;
     --menu-border-radius: 12px;

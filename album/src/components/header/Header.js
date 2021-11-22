@@ -8,7 +8,7 @@ const Header = ({ about, setAbout, setSearch }) => {
 
     const setTypeface = {
         diatype: "var(--font-family)",
-        arial: "var(--arial)",
+        arial: "var(--noto-sans)",
         open: "var(--open-sans)",
     };
 
@@ -17,20 +17,10 @@ const Header = ({ about, setAbout, setSearch }) => {
             <h1 className={style.track} style={{ fontFamily: setTypeface[CurrentState.typeface] }}>
                 {CurrentState.track}
             </h1>
-            <h1 className={style.number}>
-                {CurrentState.number}
-            </h1>
+            <h1 className={style.number}>{CurrentState.number}</h1>
+
             <div className={style.info}>
                 <button
-                    className={style.about}
-                    onClick={() => {
-                        setAbout((prevAbout) => !prevAbout);
-                        setSearch(false);
-                    }}
-                >
-                    {about ? "Close" : "About"}
-                </button>
-                {/* <button
                     className={style.search}
                     onClick={() => {
                         setSearch((prevSearch) => !prevSearch);
@@ -63,7 +53,16 @@ const Header = ({ about, setAbout, setSearch }) => {
                             strokeWidth="4"
                         />
                     </svg>
-                </button> */}
+                </button>
+                <button
+                    className={style.about}
+                    onClick={() => {
+                        setAbout((prevAbout) => !prevAbout);
+                        setSearch(false);
+                    }}
+                >
+                    {about ? "Close" : "About"}
+                </button>
             </div>
         </header>
     );

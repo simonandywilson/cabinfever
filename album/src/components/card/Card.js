@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import * as style from "./card.module.css";
 import { useSearchContext, useCurrentUpdateContext } from "../../state/GlobalState";
-import { useInView } from "react-intersection-observer";
 
 const Card = ({ track, code, number, image, alignment, typeface }) => {
     const [hover, setHover] = useState(false);
     const SearchState = useSearchContext();
     const cardImage = getImage(image);
     const CurrentUpdate = useCurrentUpdateContext();
+    const cardRef = useRef(null)
 
     // const { ref, inView } = useInView({
     //     threshold: 0.5,
@@ -23,9 +23,17 @@ const Card = ({ track, code, number, image, alignment, typeface }) => {
     //     console.log("in view");
     // }, [inView]);
 
+    useEffect(() => {
+        if (SearchState === code) {
+            var elDistanceToTop = window.pageYOffset + cardRef.current.getBoundingClientRect().top;
+            console.log(elDistanceToTop);
+        }
+
+    }, [SearchState])
+
     const setTypeface = {
         diatype: "var(--font-family)",
-        arial: "var(--arial)",
+        arial: "var(--noto-sans)",
         open: "var(--open-sans)",
     };
 
@@ -37,7 +45,7 @@ const Card = ({ track, code, number, image, alignment, typeface }) => {
             role="button"
             tabIndex="0"
             id={code}
-            // ref={ref}
+            ref={cardRef}
         >
             <div
                 className={style.borderHighlight}

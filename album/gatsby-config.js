@@ -30,7 +30,5 @@ module.exports = {
             },
             __key: "images",
         },
-        "gatsby-plugin-smoothscroll",
-        "gatsby-plugin-anchor-links",
     ],
 };

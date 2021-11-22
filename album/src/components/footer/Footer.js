@@ -7,7 +7,7 @@ const Footer = () => {
 
     const setTypeface = {
         diatype: "var(--font-family)",
-        arial: "var(--arial)",
+        arial: "var(--noto-sans)",
         open: "var(--open-sans)",
     };
 

@@ -57,7 +57,7 @@ Media Queries
         --wrapper-height: 112.5vw; /* 9/8 = 1.125 */
         --wrapper-width: 88.88vh; /* 8/9 = 0.8888 */
         --wrapper-height-max: 100vh;
-        --wrapper-offset: -50px;
+        --wrapper-offset: 0px;
         --grid-rows: repeat(2, 1fr);
         --grid-columns: repeat(1, 1fr);
         --grid-rows-large: repeat(2, 1fr);
@@ -102,10 +102,10 @@ Media Queries
         --wrapper-width: calc(177.78vh);
         --wrapper-height-max: calc(100vh);
         --wrapper-offset: 0px;
-        --grid-rows: repeat(4, 1fr);
-        --grid-columns: repeat(4, 1fr);
-        --grid-rows-large: repeat(4, 1fr);
-        --grid-columns-large: repeat(2, 1fr);
+        --grid-rows: repeat(2, 1fr);
+        --grid-columns: repeat(2, 1fr);
+        --grid-rows-large: repeat(2, 1fr);
+        --grid-columns-large: repeat(1, 1fr);
         --cell-visibility: block;
         --cell-visibility-mobile: none;
 
@@ -142,13 +142,13 @@ Media Queries
         --font-size-about: 2.2rem;
 
         /* Home */
-        --wrapper-height: calc(56.25vw);
-        --wrapper-width: calc(177.78vh - 280px);
+        --wrapper-height: calc(56.25vw / 1.33);
+        --wrapper-width: calc(100%);
         --wrapper-height-max: calc(100vh - 160px);
         --wrapper-offset: 0px;
-        --grid-rows: repeat(4, 1fr);
+        --grid-rows: repeat(3, 1fr);
         --grid-columns: repeat(4, 1fr);
-        --grid-rows-large: repeat(4, 1fr);
+        --grid-rows-large: repeat(3, 1fr);
         --grid-columns-large: repeat(2, 1fr);
         --cell-visibility: block;
         --cell-visibility-mobile: none;
@@ -221,6 +221,7 @@ Variables
     --font-family: diatype_regular;
     --arial: Arial, Helvetica, sans-serif;
     --open-sans: "Open Sans", sans-serif;
+    --noto-sans: "Noto Sans Arabic", sans-serif;
 
     /* --cell-border: 3px solid #000000;
 

@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout/Layout";
-import GridWrapper from "../components/grid/GridWrapper";
+import Grid from "../components/grid/Grid";
+import * as style from "../styles/album.module.css";
 
 const Album = ({ data }) => {
     const tracks = data.allSanityAlbum.album;
+    const albumRef = useRef(null);
+
+    // const [scrollPaused, setScrollPaused] = useState(false);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            albumRef.current.scrollBy(0, 1);
+        }, 25);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
+    // useEffect(() => {
+    //     const isScrolling = () => console.log("scrolling");
+    //     albumRef.current.addEventListener("wheel", isScrolling);
+
+    //     return () => albumRef.current.removeEventListener("wheel", isScrolling);
+    // }, []);
+
     return (
         <Layout>
-            <GridWrapper tracks={tracks} />
+            <div className={style.album} ref={albumRef}>
+                {tracks.map((track) => {
+                    return <Grid key={track._id} track={track} />;
+                })}
+            </div>
         </Layout>
     );
 };

@@ -29,6 +29,7 @@ const Thumbnail = (props) => {
             role="presentation"
             style={{ opacity: visible ? "1" : "0" }}
         >
+
             <div
                 className={style.colour}
                 style={{

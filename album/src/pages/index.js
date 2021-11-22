@@ -89,13 +89,13 @@ const Home = ({ data }) => {
                         {active && <Thumbnail image={active[0][1].asset} />}
                     </div>
                 </div>
-                <div className={style.wrapper} style={{ pointerEvents: "none" }}>
+                {/* <div className={style.wrapper} style={{ pointerEvents: "none" }}>
                     <div className={style.grid}>
                         {[...Array(18)].map((e, index) => (
                             <div key={index} className={style.border}></div>
                         ))}
                     </div>
-                </div>
+                </div> */}
 
                 <Banner />
             </main>
