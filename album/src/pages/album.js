@@ -16,6 +16,11 @@ const Album = ({ data }) => {
 
     const [paused, setPaused] = useState(false);
 
+    const refPassthrough = (el) => {
+        handlers.ref(el);
+        albumRef.current = el;
+    };
+
     useEffect(() => {
         let interval = null;
         if (!paused) {
@@ -52,7 +57,7 @@ const Album = ({ data }) => {
     const handlers = useSwipeable({
         onSwiping: () => {
             let timer;
-            const swipeStart = () => setPaused(true);
+            const swipeStart = () =>  setPaused(true);
             const swipeEnded = () => setPaused(false);
             if (typeof timer == "undefined") swipeStart();
             clearTimeout(timer);
@@ -65,7 +70,7 @@ const Album = ({ data }) => {
 
     return (
         <Layout>
-            <div className={style.album} ref={albumRef} {...handlers}>
+            <div className={style.album}  {...handlers} ref={refPassthrough}>
                 {tracks.map((track) => {
                     return <Grid key={track._id} track={track} />;
                 })}
