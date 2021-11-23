@@ -4,6 +4,7 @@ import Layout from "../components/layout/Layout";
 import Grid from "../components/grid/Grid";
 import * as style from "../styles/album.module.css";
 import { useAutoscrollContext, useAutoscrollUpdateContext } from "../state/GlobalState";
+import { useSwipeable } from "react-swipeable";
 
 const Album = ({ data }) => {
     const tracks = data.allSanityAlbum.album;
@@ -48,9 +49,23 @@ const Album = ({ data }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    const handlers = useSwipeable({
+        onSwiping: () => {
+            let timer;
+            const swipeStart = () => setPaused(true);
+            const swipeEnded = () => setPaused(false);
+            if (typeof timer == "undefined") swipeStart();
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                timer = undefined;
+                swipeEnded();
+            }, 2000);
+        },
+    });
+
     return (
         <Layout>
-            <div className={style.album} ref={albumRef}>
+            <div className={style.album} ref={albumRef} {...handlers}>
                 {tracks.map((track) => {
                     return <Grid key={track._id} track={track} />;
                 })}
