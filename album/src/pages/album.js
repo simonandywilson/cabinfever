@@ -1,29 +1,52 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout/Layout";
 import Grid from "../components/grid/Grid";
 import * as style from "../styles/album.module.css";
+import { useAutoscrollContext, useAutoscrollUpdateContext } from "../state/GlobalState";
 
 const Album = ({ data }) => {
     const tracks = data.allSanityAlbum.album;
     const albumRef = useRef(null);
+    const hasWindow = typeof window !== "undefined";
 
-    // const [scrollPaused, setScrollPaused] = useState(false);
+    const AutoscrollState = useAutoscrollContext();
+    const AutoscrollUpdate = useAutoscrollUpdateContext();
+
+    const [paused, setPaused] = useState(false);
 
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            albumRef.current.scrollBy(0, 1);
-        }, 25);
+        let interval = null;
+        if (!paused) {
+            interval = setInterval(() => {
+                albumRef.current.scrollBy(0, 1);
+            }, 25);
+        } else if (paused) {
+            clearInterval(interval);
+        }
+        return () => clearInterval(interval);
+    }, [paused]);
 
-        return () => clearInterval(intervalId);
+    useEffect(() => {
+        if (hasWindow) {
+            let timer;
+            const scrollStart = () => setPaused(true);
+            const scrolling = () => {};
+            const scrollEnded = () => setPaused(false);
+            const handleScroll = () => {
+                scrolling();
+                if (typeof timer == "undefined") scrollStart();
+                clearTimeout(timer);
+                timer = setTimeout(() => {
+                    timer = undefined;
+                    scrollEnded();
+                }, 2000);
+            };
+            window.addEventListener("wheel", handleScroll);
+            return () => window.removeEventListener("wheel", handleScroll);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    // useEffect(() => {
-    //     const isScrolling = () => console.log("scrolling");
-    //     albumRef.current.addEventListener("wheel", isScrolling);
-
-    //     return () => albumRef.current.removeEventListener("wheel", isScrolling);
-    // }, []);
 
     return (
         <Layout>

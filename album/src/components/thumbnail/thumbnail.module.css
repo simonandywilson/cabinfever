@@ -28,4 +28,5 @@
     bottom: 0.5%;
     pointer-events: none;
     background: #000000;
+    overflow: hidden;
 }

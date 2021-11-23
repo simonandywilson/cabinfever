@@ -24,22 +24,39 @@ export const useSearchUpdateContext = () => {
     return useContext(SearchUpdateContext);
 };
 
+// Autoscroll
+const AutoscrollContext = createContext();
+const AutoscrollUpdateContext = createContext();
+
+export const useAutoscrollContext = () => {
+    return useContext(AutoscrollContext);
+};
+
+export const useAutoscrollUpdateContext = () => {
+    return useContext(AutoscrollUpdateContext);
+};
+
 // Context Provider
 const ContextProvider = ({ children }) => {
     const [current, setCurrent] = useState({
         track: "",
         number: 0,
         language: "",
-        typeface: "diatype"
+        typeface: "diatype",
     });
     const [search, setSearch] = useState(null);
+    const [autoscroll, setAutoscroll] = useState(true);
 
     return (
         <CurrentContext.Provider value={current}>
             <CurrentUpdateContext.Provider value={setCurrent}>
                 <SearchContext.Provider value={search}>
                     <SearchUpdateContext.Provider value={setSearch}>
-                        {children}
+                        <AutoscrollContext.Provider value={autoscroll}>
+                            <AutoscrollUpdateContext.Provider value={setAutoscroll}>
+                                {children}
+                            </AutoscrollUpdateContext.Provider>
+                        </AutoscrollContext.Provider>
                     </SearchUpdateContext.Provider>
                 </SearchContext.Provider>
             </CurrentUpdateContext.Provider>

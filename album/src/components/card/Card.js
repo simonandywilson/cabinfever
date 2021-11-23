@@ -8,7 +8,8 @@ const Card = ({ track, code, number, image, alignment, typeface }) => {
     const SearchState = useSearchContext();
     const cardImage = getImage(image);
     const CurrentUpdate = useCurrentUpdateContext();
-    const cardRef = useRef(null)
+    const cardRef = useRef(null);
+    
 
     // const { ref, inView } = useInView({
     //     threshold: 0.5,
@@ -23,13 +24,14 @@ const Card = ({ track, code, number, image, alignment, typeface }) => {
     //     console.log("in view");
     // }, [inView]);
 
+    
+
     useEffect(() => {
         if (SearchState === code) {
             var elDistanceToTop = window.pageYOffset + cardRef.current.getBoundingClientRect().top;
             console.log(elDistanceToTop);
         }
-
-    }, [SearchState])
+    }, [SearchState]);
 
     const setTypeface = {
         diatype: "var(--font-family)",
@@ -56,10 +58,12 @@ const Card = ({ track, code, number, image, alignment, typeface }) => {
                 className={style.text}
                 style={{
                     opacity: hover ? 1 : 0,
-                    textAlign: alignment === "left" ? "left" : "right"
+                    textAlign: alignment === "left" ? "left" : "right",
                 }}
             >
-                <p className={style.track} style={{fontFamily: setTypeface[typeface]}}>{track}</p>
+                <p className={style.track} style={{ fontFamily: setTypeface[typeface] }}>
+                    {track}
+                </p>
                 <p className={style.code}>({code})</p>
                 <p className={style.number}>{number}</p>
             </div>

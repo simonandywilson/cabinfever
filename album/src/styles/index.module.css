@@ -1,25 +1,16 @@
 .container {
+    position: absolute;
     height: 100%;
     width: 100%;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .wrapper {
     position: absolute;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
-    width: 100vw;
-    height: var(--wrapper-height);
-    max-height: var(--wrapper-height-max);
-    max-width: var(--wrapper-width);
-    margin: auto;
-    top: var(--wrapper-offset);
-    bottom: 0;
-    left: 0;
-    right: 0;
+    justify-content: center;
 }
 
 .border {
@@ -31,16 +22,14 @@
     pointer-events: none;
 }
 
-.gridLarge {
-    position: absolute;
-    height: 100%;
-    width: 100%;
+.gridText {
+    position: relative;
     margin: 0;
     left: 0;
     right: 0;
     display: grid;
-    grid-template-columns: var(--grid-columns-large);
-    grid-template-rows: var(--grid-rows-large);
+    grid-template-columns: repeat(var(--home-columns-large), calc(100vw / var(--home-columns-large)));
+    grid-template-rows: repeat(var(--home-rows-large), calc((100vw / var(--home-columns)) * var(--aspect)));
     border-top: var(--cell-border);
     border-left: var(--cell-border);
     overflow: hidden;
@@ -48,15 +37,11 @@
 }
 
 .grid {
-    position: absolute;
-    height: 100%;
-    width: 100%;
+    position: relative;
     margin: 0;
-    left: 0;
-    right: 0;
     display: grid;
-    grid-template-columns: var(--grid-columns);
-    grid-template-rows: var(--grid-rows);
+    grid-template-columns: repeat(var(--home-columns), calc(100vw / var(--home-columns)));
+    grid-template-rows: repeat(var(--home-rows), calc((100vw / var(--home-columns)) * var(--aspect)));
     border-top: var(--cell-border);
     border-left: var(--cell-border);
     overflow: hidden;
@@ -70,16 +55,20 @@
     display: var(--cell-visibility-mobile);
 }
 
-.gridLarge > div:nth-child(-n + 8) {
+.gridText > div:nth-child(-n + 8) {
     display: var(--cell-visibility);
 }
 
-.gridLarge > div:nth-child(n + 9) {
+.gridText > div:nth-child(n + 9) {
     display: var(--cell-visibility-mobile);
 }
 
-.gridLarge > div:nth-child(n + 5) {
+.gridText > div:nth-child(n + 5) {
     transform: rotate(180deg);
+}
+
+.gridText > div:nth-child(n + 7) {
+    transform: rotate(0deg);
 }
 
 .header {

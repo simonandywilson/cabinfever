@@ -10,14 +10,14 @@ import Thumbnail from "../components/thumbnail/Thumbnail";
 import Banner from "../components/banner/Banner";
 import About from "../components/about/About";
 
-const Home = ({ data }) => {
+const Index = ({ data }) => {
     const order = data.sanityAbout.order;
     const content = data.allSanityContent.nodes;
     const [time, setTime] = useState(
         new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", hour12: false })
     );
     const [active, setActive] = useState(null);
-    const [about, setAbout] = useState(false)
+    const [about, setAbout] = useState(false);
 
     const getContent = useMemo(() => {
         const sortContent = content.reduce((result, current) => {
@@ -65,10 +65,10 @@ const Home = ({ data }) => {
                         {about ? "Close" : "About"}
                     </button>
                 </header>
-                <About about={about }/>
+                <About about={about} />
                 <div className={style.wrapper}>
                     <div
-                        className={style.gridLarge}
+                        className={style.gridText}
                         style={{ visibility: active ? "visible" : "hidden" }}
                     >
                         {order.map((order, i) => {
@@ -89,6 +89,7 @@ const Home = ({ data }) => {
                         {active && <Thumbnail image={active[0][1].asset} />}
                     </div>
                 </div>
+
                 {/* <div className={style.wrapper} style={{ pointerEvents: "none" }}>
                     <div className={style.grid}>
                         {[...Array(18)].map((e, index) => (
@@ -103,7 +104,7 @@ const Home = ({ data }) => {
     );
 };
 
-export default Home;
+export default Index;
 
 export const query = graphql`
     query {

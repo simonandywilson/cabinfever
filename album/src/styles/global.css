@@ -14,10 +14,10 @@ Media Queries
         --wrapper-width: 88.88vh; /* 8/9 = 0.8888 */
         --wrapper-height-max: 100vh;
         --wrapper-offset: 0px;
-        --grid-rows: repeat(2, 1fr);
-        --grid-columns: repeat(1, 1fr);
-        --grid-rows-large: repeat(2, 1fr);
-        --grid-columns-large: repeat(1, 1fr);
+        --home-columns: 1;
+        --home-rows: 2;
+        --home-columns-large: 1;
+        --home-rows-large: 2;
         --cell-visibility: none;
         --cell-visibility-mobile: flex;
 
@@ -58,10 +58,10 @@ Media Queries
         --wrapper-width: 88.88vh; /* 8/9 = 0.8888 */
         --wrapper-height-max: 100vh;
         --wrapper-offset: 0px;
-        --grid-rows: repeat(2, 1fr);
-        --grid-columns: repeat(1, 1fr);
-        --grid-rows-large: repeat(2, 1fr);
-        --grid-columns-large: repeat(1, 1fr);
+        --home-columns: 1;
+        --home-rows: 2;
+        --home-columns-large: 1;
+        --home-rows-large: 2;
         --cell-visibility: none;
         --cell-visibility-mobile: flex;
 
@@ -102,10 +102,10 @@ Media Queries
         --wrapper-width: calc(177.78vh);
         --wrapper-height-max: calc(100vh);
         --wrapper-offset: 0px;
-        --grid-rows: repeat(2, 1fr);
-        --grid-columns: repeat(2, 1fr);
-        --grid-rows-large: repeat(2, 1fr);
-        --grid-columns-large: repeat(1, 1fr);
+        --home-columns: 2;
+        --home-rows: 2;
+        --home-columns-large: 1;
+        --home-rows-large: 2;
         --cell-visibility: block;
         --cell-visibility-mobile: none;
 
@@ -146,10 +146,10 @@ Media Queries
         --wrapper-width: calc(100%);
         --wrapper-height-max: calc(100vh - 160px);
         --wrapper-offset: 0px;
-        --grid-rows: repeat(3, 1fr);
-        --grid-columns: repeat(4, 1fr);
-        --grid-rows-large: repeat(3, 1fr);
-        --grid-columns-large: repeat(2, 1fr);
+        --home-columns: 4;
+        --home-rows: 3;
+        --home-columns-large: 2;
+        --home-rows-large: 3;
         --cell-visibility: block;
         --cell-visibility-mobile: none;
 
@@ -158,8 +158,8 @@ Media Queries
         --card-code-font-size: 1.25vw;
         --grid-album-columns: 5;
 
-        --header-columns: repeat(var(--grid-album-columns), var(--column-width));
-        --footer-columns: repeat(var(--grid-album-columns), var(--column-width));
+        --header-columns: repeat(var(--grid-album-columns), var(--column-width-album));
+        --footer-columns: repeat(var(--grid-album-columns), var(--column-width-album));
 
         --header-track-column: 2 / 4;
         --header-track-display: block;
@@ -172,7 +172,7 @@ Media Queries
         --footer-title-display: none;
         --footer-number-display: block;
 
-        --about-padding: var(--column-width);
+        --about-padding: var(--column-width-album);
 
         --card-padding: calc(var(--padding) / 2);
     }
@@ -204,8 +204,8 @@ Variables
     --padding-double: calc(var(--padding) * 2);
     --aspect: 0.5625;
 
-    --column-width: calc((100vw - var(--border-width)) / var(--grid-album-columns));
-    --row-height: calc(((100vw - var(--border-width)) / var(--grid-album-columns)) * var(--aspect));
+    --column-width-album: calc((100vw - var(--border-width)) / var(--grid-album-columns));
+    --row-height-album: calc(((100vw - var(--border-width)) / var(--grid-album-columns)) * var(--aspect));
 
     --menu-colour: #02ff00;
     --menu-border-radius: 12px;
