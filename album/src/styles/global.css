@@ -27,14 +27,13 @@ Media Queries
 
         --grid-album-columns: 1;
 
-        --header-columns: 0.2fr 1fr;
+        --header-columns: calc(var(--menu-width) + var(--padding-double)) 1fr;
         --footer-columns: 1fr;
 
         --header-track-column: 1 / 1;
         --header-track-display: none;
         --header-info-column: 2 / 2;
         --header-info-justify: flex-end;
-        --header-number-display: block;
 
         --footer-track-display: none;
         --footer-language-display: none;
@@ -71,14 +70,13 @@ Media Queries
 
         --grid-album-columns: 1;
 
-        --header-columns: 0.2fr 1fr;
+        --header-columns: calc(var(--menu-width) + var(--padding-double)) 1fr;
         --footer-columns: 1fr;
 
         --header-track-column: 1 / 1;
         --header-track-display: none;
         --header-info-column: 2 / 2;
         --header-info-justify: flex-end;
-        --header-number-display: block;
 
         --footer-track-display: none;
         --footer-language-display: none;
@@ -122,7 +120,6 @@ Media Queries
         --header-track-display: block;
         --header-info-column: 3 / 3;
         --header-info-justify: space-between;
-        --header-number-display: none;
 
         --footer-track-display: inline-block;
         --footer-language-display: block;
@@ -165,7 +162,6 @@ Media Queries
         --header-track-display: block;
         --header-info-column: 5 / 6;
         --header-info-justify: space-between;
-        --header-number-display: none;
 
         --footer-track-display: inline-block;
         --footer-language-display: block;
@@ -177,21 +173,6 @@ Media Queries
         --card-padding: calc(var(--padding) / 2);
     }
 }
-
-/* @media only screen and (min-width: 177.79vh) {
-    :root {
-        --wrapper-height: calc(56.25vw);
-        --wrapper-width: calc(177.78vh );
-        --wrapper-height-max: calc(100vh);
-        --wrapper-offset: ;
-        --grid-rows: repeat(4, 1fr);
-        --grid-columns: repeat(4, 1fr);
-        --grid-rows-large: repeat(4, 1fr);
-        --grid-columns-large: repeat(2, 1fr);
-        --cell-visibility: block;
-        --cell-visibility-mobile: none;
-    }
-} */
 
 /*----------------------------------------
 Variables

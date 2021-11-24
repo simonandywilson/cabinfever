@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import * as style from "./search.module.css";
-import { useSearchUpdateContext } from "../../state/GlobalState";
+import { useSearchUpdateContext, useAutoscrollUpdateContext } from "../../state/GlobalState";
 import { motion } from "framer-motion";
 
 const Search = ({ search, setSearch }) => {
@@ -8,8 +8,24 @@ const Search = ({ search, setSearch }) => {
     const [inputValue, setInputValue] = useState("");
     const SearchUpdate = useSearchUpdateContext();
 
+    useEffect(() => {
+        if (search) {
+            input.current.focus();
+        }
+    }, [search]);
+
     const handleSearch = (e) => {
-        if (e.key === "Backspace" || e.key === "Delete") {
+        if (e.key === "Escape") {
+            input.current.blur();
+            setSearch(false)
+            e.preventDefault();
+        }
+        if (
+            e.key === "Backspace" ||
+            e.key === "Delete" ||
+            e.key === "ArrowLeft" ||
+            e.key === "ArrowRight"
+        ) {
             return;
         }
         if (/^[0-9cf-]+|[\b]+$/.test(e.key)) {
@@ -47,27 +63,28 @@ const Search = ({ search, setSearch }) => {
                     ref={input}
                     onChange={() => setInputValue(input.current.value)}
                 ></input>
-                <button type="submit" className={style.icon} onClick={() => setSearch(false)} >
+                <button type="submit" className={style.icon} onClick={() => setSearch(false)}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="39.85"
-                        height="39.85"
-                        viewBox="0 0 39.85 39.85"
+                        width="38.42"
+                        height="38.42"
+                        viewBox="0 0 38.42 38.42"
                     >
-                        <circle
-                            cx="25.4"
-                            cy="14.44"
-                            r="13.44"
+                        <line
+                            x1="0.71"
+                            y1="0.71"
+                            x2="37.71"
+                            y2="37.71"
                             fill="none"
                             stroke="#ffffff"
                             strokeMiterlimit="10"
                             strokeWidth="4"
                         />
                         <line
-                            x1="0.71"
-                            y1="39.14"
-                            x2="15.91"
-                            y2="23.94"
+                            x1="37.71"
+                            y1="0.71"
+                            x2="0.71"
+                            y2="37.71"
                             fill="none"
                             stroke="#ffffff"
                             strokeMiterlimit="10"

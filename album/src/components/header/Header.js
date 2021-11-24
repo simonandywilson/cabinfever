@@ -17,8 +17,6 @@ const Header = ({ about, setAbout, setSearch }) => {
             <h1 className={style.track} style={{ fontFamily: setTypeface[CurrentState.typeface] }}>
                 {CurrentState.track}
             </h1>
-            <h1 className={style.number}>{CurrentState.number}</h1>
-
             <div className={style.info}>
                 <button
                     className={style.search}

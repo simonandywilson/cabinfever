@@ -51,10 +51,7 @@ const Index = ({ data }) => {
     }, []);
 
     return (
-        <>
-            <Seo />
             <main className={style.container}>
-                <Menu />
                 <header className={style.header}>
                     <button
                         className={style.about}
@@ -100,7 +97,6 @@ const Index = ({ data }) => {
 
                 <Banner />
             </main>
-        </>
     );
 };
 

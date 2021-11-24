@@ -1,25 +1,37 @@
 import React, { useEffect, useRef, useState } from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/layout/Layout";
 import Grid from "../components/grid/Grid";
+import Header from "../components/header/Header";
+import About from "../components/about/About";
+import Search from "../components/search/Search";
+import Footer from "../components/footer/Footer";
 import * as style from "../styles/album.module.css";
-import { useAutoscrollContext, useAutoscrollUpdateContext } from "../state/GlobalState";
 import { useSwipeable } from "react-swipeable";
+import { useOffsetContext } from "../state/GlobalState";
 
 const Album = ({ data }) => {
     const tracks = data.allSanityAlbum.album;
     const albumRef = useRef(null);
     const hasWindow = typeof window !== "undefined";
-
-    const AutoscrollState = useAutoscrollContext();
-    const AutoscrollUpdate = useAutoscrollUpdateContext();
-
+    const OffsetState = useOffsetContext();
+    const [about, setAbout] = useState(false);
+    const [search, setSearch] = useState(false);
     const [paused, setPaused] = useState(false);
 
     const refPassthrough = (el) => {
         handlers.ref(el);
         albumRef.current = el;
     };
+
+    useEffect(() => {
+        if (hasWindow) {
+            albumRef.current.scrollBy({
+                top: OffsetState - window.innerHeight / 2 + 80,
+                left: 0,
+                behavior: "smooth",
+            });
+        }
+    }, [OffsetState]);
 
     useEffect(() => {
         let interval = null;
@@ -54,10 +66,18 @@ const Album = ({ data }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    useEffect(() => {
+        if (search) {
+            setPaused(true);
+        } else {
+            setPaused(false);
+        }
+    }, [search]);
+
     const handlers = useSwipeable({
         onSwiping: () => {
             let timer;
-            const swipeStart = () =>  setPaused(true);
+            const swipeStart = () => setPaused(true);
             const swipeEnded = () => setPaused(false);
             if (typeof timer == "undefined") swipeStart();
             clearTimeout(timer);
@@ -69,13 +89,17 @@ const Album = ({ data }) => {
     });
 
     return (
-        <Layout>
-            <div className={style.album}  {...handlers} ref={refPassthrough}>
+        <>
+            <Header about={about} setAbout={setAbout} setSearch={setSearch} />
+            <About about={about} />
+            <Search search={search} setSearch={setSearch} />
+            <div className={style.album} {...handlers} ref={refPassthrough} onClick={() => setSearch(false)}>
                 {tracks.map((track) => {
                     return <Grid key={track._id} track={track} />;
                 })}
             </div>
-        </Layout>
+            <Footer />
+        </>
     );
 };
 

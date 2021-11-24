@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import * as style from "./card.module.css";
-import { useSearchContext, useCurrentUpdateContext } from "../../state/GlobalState";
+import { useSearchContext, useCurrentUpdateContext, useOffsetUpdateContext } from "../../state/GlobalState";
 
 const Card = ({ track, code, number, image, alignment, typeface }) => {
     const [hover, setHover] = useState(false);
     const SearchState = useSearchContext();
     const cardImage = getImage(image);
     const CurrentUpdate = useCurrentUpdateContext();
+    const OffsetUpdate = useOffsetUpdateContext();
     const cardRef = useRef(null);
     
 
@@ -28,8 +29,7 @@ const Card = ({ track, code, number, image, alignment, typeface }) => {
 
     useEffect(() => {
         if (SearchState === code) {
-            var elDistanceToTop = window.pageYOffset + cardRef.current.getBoundingClientRect().top;
-            console.log(elDistanceToTop);
+            OffsetUpdate(window.pageYOffset + cardRef.current.getBoundingClientRect().top);
         }
     }, [SearchState]);
 

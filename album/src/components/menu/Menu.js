@@ -61,10 +61,10 @@ const Menu = () => {
                     <a href={"#"}>{"Album"}</a>
                     <a href={"#"}>{"Timeline"}</a>
                     <a href={"#"}>{"Contact"}</a> */}
-                    <Link className={style.link} to={"/"}>
+                    <Link className={style.link} to={"/"} onClick={() => setVisible(false)}>
                         HOME
                     </Link>
-                    <Link className={style.link} to={"/album"}>
+                    <Link className={style.link} to={"/album"} onClick={() => setVisible(false)}>
                         ALBUM
                     </Link>
                 </motion.div>

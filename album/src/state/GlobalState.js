@@ -24,6 +24,18 @@ export const useSearchUpdateContext = () => {
     return useContext(SearchUpdateContext);
 };
 
+// Offset
+const OffsetContext = createContext();
+const OffsetUpdateContext = createContext();
+
+export const useOffsetContext = () => {
+    return useContext(OffsetContext);
+};
+
+export const useOffsetUpdateContext = () => {
+    return useContext(OffsetUpdateContext);
+};
+
 // Autoscroll
 const AutoscrollContext = createContext();
 const AutoscrollUpdateContext = createContext();
@@ -45,6 +57,8 @@ const ContextProvider = ({ children }) => {
         typeface: "diatype",
     });
     const [search, setSearch] = useState(null);
+    const [offset, setOffset] = useState(null);
+    
     const [autoscroll, setAutoscroll] = useState(true);
 
     return (
@@ -52,11 +66,15 @@ const ContextProvider = ({ children }) => {
             <CurrentUpdateContext.Provider value={setCurrent}>
                 <SearchContext.Provider value={search}>
                     <SearchUpdateContext.Provider value={setSearch}>
-                        <AutoscrollContext.Provider value={autoscroll}>
-                            <AutoscrollUpdateContext.Provider value={setAutoscroll}>
-                                {children}
-                            </AutoscrollUpdateContext.Provider>
-                        </AutoscrollContext.Provider>
+                        <OffsetContext.Provider value={offset}>
+                            <OffsetUpdateContext.Provider value={setOffset}>
+                                <AutoscrollContext.Provider value={autoscroll}>
+                                    <AutoscrollUpdateContext.Provider value={setAutoscroll}>
+                                        {children}
+                                    </AutoscrollUpdateContext.Provider>
+                                </AutoscrollContext.Provider>
+                            </OffsetUpdateContext.Provider>
+                        </OffsetContext.Provider>
                     </SearchUpdateContext.Provider>
                 </SearchContext.Provider>
             </CurrentUpdateContext.Provider>
