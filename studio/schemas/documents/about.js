@@ -8,7 +8,7 @@ export default {
             // Banner
             title: "Banner",
             name: "banner",
-            type: "text",
+            type: "string",
         },
         {
             // Banner Link
@@ -17,17 +17,25 @@ export default {
             type: "url",
         },
         {
-            // Contact
-            title: "Contact",
-            name: "contact",
-            type: "contact",
-            validation: (Rule) => Rule.max(4),
+            title: "About",
+            name: "text",
+            type: "array",
+            of: [
+                {
+                    type: "block",
+                    styles: [],
+                    lists: [],
+                    marks: {
+                        decorators: [],
+                    },
+                },
+            ],
         },
         {
             title: "Order",
             name: "order",
             type: "layout",
-            // hidden: true,
+            hidden: true,
         },
     ],
 };

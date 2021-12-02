@@ -14,6 +14,9 @@ import layout from "./objects/project/layout"
 import album from "./documents/album";
 import card from "./objects/album/card";
 
+import timeline from "./documents/timeline";
+import entry from "./objects/timeline/entry";
+
 
 export default createSchema({
     name: "mySchema",
@@ -30,5 +33,8 @@ export default createSchema({
 
         album,
         card,
+
+        timeline,
+        entry,
     ]),
 });
