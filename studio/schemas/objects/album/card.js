@@ -1,6 +1,6 @@
 import sanityClient from "part:@sanity/base/client";
 const client = sanityClient.withConfig({ apiVersion: "2021-03-25" });
-import { BiRectangle } from "react-icons/bi";
+import { AlbumIcon } from "../../../styles/Icons";
 
 export default {
     title: "Card",
@@ -34,7 +34,7 @@ export default {
             const { title, media } = selection;
             return {
                 title: title ? title.current : "Card",
-                media: media ?? BiRectangle,
+                media: media ?? (() => AlbumIcon()),
             };
         },
     },

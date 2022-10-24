@@ -1,5 +1,5 @@
-import { BiCircle } from "react-icons/bi";
 import { orderRankField } from "@sanity/orderable-document-list";
+import { AlbumIcon } from "../../styles/Icons";
 
 export default {
     title: "Album",
@@ -69,7 +69,7 @@ export default {
             return {
                 title: title ?? "Album Group",
                 subtitle: subtitle ?? subtitle.toString().padStart(2, "0"),
-                media: media ? media[0] : BiCircle,
+                media: media ? media[0] : () => AlbumIcon(),
             };
         },
     },

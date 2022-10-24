@@ -1,10 +1,10 @@
-import { BiPaperclip } from "react-icons/bi";
+import { LinkIcon } from "../../../styles/Icons";
 
 export default {
     title: "Social",
     name: "social",
     type: "object",
-    icon: BiPaperclip,
+    icon: () => LinkIcon(),
     fields: [
         {
             title: "Type",

@@ -1,5 +1,5 @@
-import { BiCalendarAlt } from "react-icons/bi";
 import { orderRankField } from "@sanity/orderable-document-list";
+import { TimelineIcon } from "../../styles/Icons";
 
 export default {
     title: "Timeline",
@@ -55,7 +55,7 @@ export default {
             return {
                 title: title ?? "Timeline Entry",
                 subtitle: subtitle ?? "",
-                media: media ? media[0] : BiCalendarAlt,
+                media: media ? media[0] : () => TimelineIcon(),
             };
         },
     },
