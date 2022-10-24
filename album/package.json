@@ -15,6 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@portabletext/react": "^1.0.6",
     "framer-motion": "^5.3.0",
     "gatsby": "^4.1.0",
     "gatsby-plugin-image": "^2.1.0",

@@ -31,6 +31,11 @@
 .wrapper > p {
     font-size: var(--font-size-about);
     font-family: diatype_mono;
+    margin-bottom: var(--font-size-about);
+}
+
+.wrapper > p:last-child {
+    margin-bottom: 0;
 }
 
 .wrapper > p > a {

@@ -1,0 +1,12 @@
+:global([data-ui='PaneItem'] *:not(svg) + span) {
+  box-shadow: none !important;
+}
+
+:global([data-testid='Media'] *:not(svg) + span) {
+  box-shadow: none !important;
+} 
+
+ :global(#page-orderable-page-0 [data-ui='Box'] *:not(svg) + span) {
+  box-shadow: none !important;
+}
+
