@@ -5,3 +5,6 @@ command = "CI= npm run build"
 from = "/*"
 to = "/"
 status = 200
+
+[build.environment]
+    YARN_FLAGS = "--ignore-platform"
