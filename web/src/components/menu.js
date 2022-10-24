@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import Arrow from "../images/arrow.svg";
 
 const Menu = () => {
-    const {
-        sanityAbout: { contact },
-    } = useStaticQuery(getData);
+    // const {
+    //     sanityAbout: { contact },
+    // } = useStaticQuery(getData);
     const [visible, setVisible] = useState(false);
     const popover = {
         open: { height: "275px", width: "275px" },
@@ -20,7 +20,7 @@ const Menu = () => {
 
     return (
         <menu className={style.menu}>
-            <div
+            {/* <div
                 className={style.button}
                 onClick={() => setVisible((prevVisible) => !prevVisible)}
                 role="presentation"
@@ -70,22 +70,22 @@ const Menu = () => {
                         );
                     })}
                 </motion.div>
-            </motion.div>
+            </motion.div> */}
         </menu>
     );
 };
 
 export default Menu;
 
-const getData = graphql`
-    {
-        sanityAbout {
-            contact {
-                _key
-                title
-                link
-                type
-            }
-        }
-    }
-`;
+// const getData = graphql`
+//     {
+//         sanityAbout {
+//             contact {
+//                 _key
+//                 title
+//                 link
+//                 type
+//             }
+//         }
+//     }
+// `;
