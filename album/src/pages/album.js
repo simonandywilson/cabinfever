@@ -23,48 +23,48 @@ const Album = ({ data }) => {
         albumRef.current = el;
     };
 
-    useEffect(() => {
-        if (hasWindow) {
-            albumRef.current.scrollBy({
-                top: OffsetState - window.innerHeight / 2 + 80,
-                left: 0,
-                behavior: "smooth",
-            });
-        }
-    }, [OffsetState]);
+    // useEffect(() => {
+    //     if (hasWindow) {
+    //         albumRef.current.scrollBy({
+    //             top: OffsetState - window.innerHeight / 2 + 80,
+    //             left: 0,
+    //             behavior: "smooth",
+    //         });
+    //     }
+    // }, [OffsetState]);
 
-    useEffect(() => {
-        let interval = null;
-        if (!paused) {
-            interval = setInterval(() => {
-                albumRef.current.scrollBy(0, 1);
-            }, 25);
-        } else if (paused) {
-            clearInterval(interval);
-        }
-        return () => clearInterval(interval);
-    }, [paused]);
+    // useEffect(() => {
+    //     let interval = null;
+    //     if (!paused) {
+    //         interval = setInterval(() => {
+    //             albumRef.current.scrollBy(0, 1);
+    //         }, 25);
+    //     } else if (paused) {
+    //         clearInterval(interval);
+    //     }
+    //     return () => clearInterval(interval);
+    // }, [paused]);
 
-    useEffect(() => {
-        if (hasWindow) {
-            let timer;
-            const scrollStart = () => setPaused(true);
-            const scrolling = () => {};
-            const scrollEnded = () => setPaused(false);
-            const handleScroll = () => {
-                scrolling();
-                if (typeof timer == "undefined") scrollStart();
-                clearTimeout(timer);
-                timer = setTimeout(() => {
-                    timer = undefined;
-                    scrollEnded();
-                }, 2000);
-            };
-            window.addEventListener("wheel", handleScroll);
-            return () => window.removeEventListener("wheel", handleScroll);
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // useEffect(() => {
+    //     if (hasWindow) {
+    //         let timer;
+    //         const scrollStart = () => setPaused(true);
+    //         const scrolling = () => {};
+    //         const scrollEnded = () => setPaused(false);
+    //         const handleScroll = () => {
+    //             scrolling();
+    //             if (typeof timer == "undefined") scrollStart();
+    //             clearTimeout(timer);
+    //             timer = setTimeout(() => {
+    //                 timer = undefined;
+    //                 scrollEnded();
+    //             }, 2000);
+    //         };
+    //         window.addEventListener("wheel", handleScroll);
+    //         return () => window.removeEventListener("wheel", handleScroll);
+    //     }
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
     useEffect(() => {
         if (search) {
